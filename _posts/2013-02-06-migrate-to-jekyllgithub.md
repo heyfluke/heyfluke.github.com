@@ -9,6 +9,7 @@ tags:
  - github pages
  - blog
  - wordpress
+permalink: /2013/02/migrate-to-jekyllgithub/
 ---
 {% include JB/setup %}
 
