@@ -4,7 +4,7 @@
  <title>Luke同学的牢骚</title>
  <link href="http://gotomato.tk/atom.xml" rel="self"/>
  <link href="http://gotomato.tk"/>
- <updated>2013-02-06T03:22:44+08:00</updated>
+ <updated>2013-02-06T03:46:15+08:00</updated>
  <id>http://gotomato.tk</id>
  <author>
    <name>Yongchao Lao</name>
@@ -317,17 +317,17 @@
 
 &lt;p&gt; &lt;/p&gt;
 
+&lt;h1 id='id65' /&gt;
+
+&lt;h1 id='id66' /&gt;
+
+&lt;h1 id='id67' /&gt;
+
 &lt;h1 id='id68' /&gt;
 
 &lt;h1 id='id69' /&gt;
 
-&lt;h1 id='id70' /&gt;
-
-&lt;h1 id='id71' /&gt;
-
-&lt;h1 id='id72' /&gt;
-
-&lt;h4 id='id73' /&gt;
+&lt;h4 id='id70' /&gt;
 
 &lt;p&gt;Version 5.1.2 Based on the Byte Magazine Unix Benchmark&lt;/p&gt;
 
@@ -1453,7 +1453,7 @@
 
 &lt;h15&gt;route section&lt;/h15&gt;
 
-&lt;h1 id='id67'&gt;确保注释掉上面的推送默认路由&lt;/h1&gt;
+&lt;h1 id='id64'&gt;确保注释掉上面的推送默认路由&lt;/h1&gt;
 
 &lt;h1 id='vpnvpn'&gt;然后设置哪些网段由VPN由路由。下面的示例是北美网段由VPN路由。&lt;/h1&gt;
 
