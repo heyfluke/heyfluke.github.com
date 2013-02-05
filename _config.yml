@@ -9,8 +9,8 @@ pygments: true
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
 #
-title : 博客 Jekyll Bootstrap
-tagline: Site Tagline
+title : Luke同学的牢骚
+tagline: Coding Life
 author :
   name : Yongchao Lao
   email : fluke.l@gmail.com

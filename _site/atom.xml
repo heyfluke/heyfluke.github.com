@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
  
- <title>博客 Jekyll Bootstrap</title>
+ <title>Luke同学的牢骚</title>
  <link href="http://gotomato.tk/atom.xml" rel="self"/>
  <link href="http://gotomato.tk"/>
- <updated>2013-02-06T02:41:58+08:00</updated>
+ <updated>2013-02-06T02:44:29+08:00</updated>
  <id>http://gotomato.tk</id>
  <author>
    <name>Yongchao Lao</name>
