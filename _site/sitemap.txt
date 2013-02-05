@@ -9,4 +9,5 @@ http://gotomato.tk/sitemap.txt
 http://gotomato.tk/tags.html
 
 http://gotomato.tk/2013/02/06/hello-world
+http://gotomato.tk/2012/11/luke%e5%90%8c%e5%ad%a6%e7%9a%84%e7%89%a2%e9%aa%9a/
 http://gotomato.tk/lessons/2011/12/29/jekyll-introduction
