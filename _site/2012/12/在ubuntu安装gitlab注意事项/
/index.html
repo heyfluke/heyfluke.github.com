@@ -3,8 +3,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>测试Hello world</title>
-    <meta name="description" content="">
+    <title>在ubuntu安装gitlab注意事项</title>
+    
     <meta name="author" content="Yongchao Lao">
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
@@ -99,21 +99,55 @@
       <div class="content">
         
 <div class="page-header">
-  <h1>测试Hello world <small>Supporting tagline</small></h1>
+  <h1>在ubuntu安装gitlab注意事项 <small>Supporting tagline</small></h1>
 </div>
 
 <div class="row">
   <div class="span8">
-    <p>测试测试</p>
+    <p>#</p>
+
+<p>决定在新的项目里面享受一下<a href='http://gitlabhq.com/'>gitlab</a>。安装的方法在github上面有：。</p>
+
+<p>在ubuntu的vps上面安装，总体还比较顺利，不过出现了安装bundle以及某句rake时候莫名奇妙的问题，检查了一下，发现文章上用的ruby是1.9.3版本，而ubuntu仓库里面默认的是1.8，难道也和python一样最新版已经没什么出现的必要了？</p>
+
+<p>所以应该安装到ruby 1.9.3 : “aptitude install ruby1.9.3”。</p>
+
+<p>另外第五步的手工创建数据库不需要自己做，因为在后面的“sudo -u gitlab bundle exec rake gitlab:app:setup RAILS_ENV=production”会尝试去建立数据库。</p>
+
+<p>结合数据库的维护，又从自动检查配置情况的脚本的输出来看，文档应该跟不上最新版本的变化了：</p>
+
+<blockquote>
+<p>Starting diagnostics</p>
+
+<p>config/database.yml…………exists</p>
+
+<p>config/gitlab.yml…………exists</p>
+
+<p>/home/git/repositories/…………exists</p>
+
+<p>/home/git/repositories/ is writable?…………YES</p>
+
+<p>Can clone gitolite-admin?…………YES</p>
+
+<p>Can git commit?…………YES</p>
+
+<p>UMASK for .gitolite.rc is 0007? …………YES</p>
+
+<p>/home/git/.gitolite/hooks/common/post-receive exists? …………YES<br /> </p>
+</blockquote>
+
+<p>再配置下nginx就能访问网站了，创建的项目默认以localhost来做主机名，要到/home/gitlab/gitlab/config/gitlab.yml里面去修改。 PS. gitlab好像修改了我mysql root密码，还没来得及去调查清楚。</p>
     <hr>
     <div class="pagination">
       <ul>
       
-        <li class="prev"><a href="/2013/02/%e7%ac%94%e8%bf%b9%e5%b9%b3%e6%bb%91%e7%9a%84%e5%ba%94%e7%94%a8/" title="笔迹平滑的应用">&larr; Previous</a></li>
+        <li class="prev"><a href="/2012/12/%e8%af%95%e7%94%a8homebrew%ef%bc%8c%e4%b8%80%e4%b8%aa%e4%bc%98%e9%9b%85%e7%9a%84%e5%8c%85%e7%ae%a1%e7%90%86/
+/" title="试用homebrew，一个优雅的包管理">&larr; Previous</a></li>
       
         <li><a href="/archive.html">Archive</a></li>
       
-        <li class="next disabled"><a>Next &rarr;</a>
+        <li class="next"><a href="/2012/12/%e6%9b%b4%e6%96%b0chromium%e6%ba%90%e7%a0%81%e7%9a%84%e6%b3%a8%e6%84%8f%e4%ba%8b%e9%a1%b9/
+/" title="更新chromium源码的注意事项">Next &rarr;</a></li>
       
       </ul>
     </div>
@@ -143,8 +177,28 @@
   
   <div class="span4">
     <h4>Published</h4>
-    <div class="date"><span>06 February 2013</span></div>
+    <div class="date"><span>07 December 2012</span></div>
 
+  
+    <h4>Tags</h4>
+    <ul class="tag_box">
+    
+    
+
+
+  
+     
+    	<li><a href="/tags.html#git-ref">git <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#gitlab-ref">gitlab <span>2</span></a></li>
+     
+    	<li><a href="/tags.html#git仓库-ref">git仓库 <span>1</span></a></li>
+    
+  
+
+
+
+    </ul>
     
   </div>
 </div>

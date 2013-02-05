@@ -3,8 +3,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>测试Hello world</title>
-    <meta name="description" content="">
+    <title>ios跨平台开发-POSIX信号量的支持</title>
+    
     <meta name="author" content="Yongchao Lao">
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
@@ -99,21 +99,37 @@
       <div class="content">
         
 <div class="page-header">
-  <h1>测试Hello world <small>Supporting tagline</small></h1>
+  <h1>ios跨平台开发-POSIX信号量的支持 <small>Supporting tagline</small></h1>
 </div>
 
 <div class="row">
   <div class="span8">
-    <p>测试测试</p>
+    <p>#</p>
+
+<p>为了跨平台，首选了POSIX的pthread，但发现在ios平台下面有如下问题，以后解决了再发上来：</p>
+
+<ol>
+<li>
+<p>sem_init函数返回ENOSYS 78错误码，表示未实现。</p>
+</li>
+
+<li>
+<p>换用sem_open创建有名管道，本来应该返回sem_t<em>，但目测指针不是返回-1(表示SEM_FAIL)就是0×4，不是一个合法的指针。errno有时候为2有时候为3。强行使用的症状印象中是sem_wait恒成功。</em></p>
+</li>
+</ol>
+
+<p>iOS平台下面信号量等同步机制在<a href='http://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/Multithreading/Introduction/Introduction.html#//apple_ref/doc/uid/10000057i-CH1-SW1'>Threading Programming Guide</a>、Concurrency Programming Guide等知识库文章里面有描述，如果不需要跨平台可以直接使用。否则需要自己封装。</p>
     <hr>
     <div class="pagination">
       <ul>
       
-        <li class="prev"><a href="/2013/02/%e7%ac%94%e8%bf%b9%e5%b9%b3%e6%bb%91%e7%9a%84%e5%ba%94%e7%94%a8/" title="笔迹平滑的应用">&larr; Previous</a></li>
+        <li class="prev"><a href="/2013/01/cocos2d-x%e5%bc%80%e5%8f%91%e6%a8%a1%e5%bc%8f-%e6%9b%b4%e6%96%b0%e7%94%bb%e9%9d%a2%e6%88%96%e8%80%85%e6%b8%b8%e6%88%8f%e4%b8%96%e7%95%8c/
+/" title="cocos2d-x开发模式-更新画面或者游戏世界">&larr; Previous</a></li>
       
         <li><a href="/archive.html">Archive</a></li>
       
-        <li class="next disabled"><a>Next &rarr;</a>
+        <li class="next"><a href="/2013/02/wwdc%e8%a7%86%e9%a2%91%e4%bb%a3%e7%a0%81-%e5%be%88%e5%a5%bd%e7%9a%84%e8%b5%84%e6%96%99%e5%ba%93/
+/" title="WWDC视频/代码&#8211;很好的资料库">Next &rarr;</a></li>
       
       </ul>
     </div>
@@ -143,8 +159,32 @@
   
   <div class="span4">
     <h4>Published</h4>
-    <div class="date"><span>06 February 2013</span></div>
+    <div class="date"><span>30 January 2013</span></div>
 
+  
+    <h4>Tags</h4>
+    <ul class="tag_box">
+    
+    
+
+
+  
+     
+    	<li><a href="/tags.html#iOS-ref">iOS <span>4</span></a></li>
+     
+    	<li><a href="/tags.html#pthread-ref">pthread <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#信号量-ref">信号量 <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#线程-ref">线程 <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#跨平台-ref">跨平台 <span>1</span></a></li>
+    
+  
+
+
+
+    </ul>
     
   </div>
 </div>

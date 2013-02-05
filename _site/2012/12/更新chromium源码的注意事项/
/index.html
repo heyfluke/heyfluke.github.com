@@ -3,8 +3,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>测试Hello world</title>
-    <meta name="description" content="">
+    <title>更新chromium源码的注意事项</title>
+    
     <meta name="author" content="Yongchao Lao">
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
@@ -99,21 +99,68 @@
       <div class="content">
         
 <div class="page-header">
-  <h1>测试Hello world <small>Supporting tagline</small></h1>
+  <h1>更新chromium源码的注意事项 <small>Supporting tagline</small></h1>
 </div>
 
 <div class="row">
   <div class="span8">
-    <p>测试测试</p>
+    <p>#</p>
+
+<p>最近又更新chromium源码，发现几个月时间svn版本号就差不多增加了一倍了，大小也已经翻番，恐怖……</p>
+
+<p>没有google那么幸福，还没享受到千兆网，直接下载全部源码内容会非常的痛苦，其实有一些测试用的代码或者文件是可以屏蔽掉的，尤其是LayoutTest(已经默认屏蔽)，还有media/test/data下面的内容，都是一些音视频文件。</p>
+
+<p>附上我的.gclient文件：</p>
+
+<blockquote>
+<p>solutions = <span /></p>
+
+<p>  { &#8220;name&#8221;        : &#8220;src&#8221;,</p>
+
+<p>    &#8220;url&#8221;         : &#8220;https://src.chromium.org/chrome/trunk/src&#8221;,</p>
+
+<p>    &#8220;deps_file&#8221;   : &#8220;DEPS&#8221;,</p>
+
+<p>    &#8220;managed&#8221;     : True,</p>
+
+<p>    &#8220;custom_deps&#8221; : {</p>
+
+<p>        &#8220;src/media/test/data&#8221;: None,</p>
+
+<p>        &#8220;src/third_party/WebKit/LayoutTests&#8221;: None,</p>
+
+<p>        &#8220;src/content/test/data/layout_tests/LayoutTests&#8221;: None,</p>
+
+<p>        &#8220;src/chrome/tools/test/reference_build/chrome_win&#8221;: None,</p>
+
+<p>        &#8220;src/chrome_frame/tools/test/reference_build/chrome_win&#8221;: None,</p>
+
+<p>        &#8220;src/chrome/tools/test/reference_build/chrome_linux&#8221;: None,</p>
+
+<p>        &#8220;src/chrome/tools/test/reference_build/chrome_mac&#8221;: None,</p>
+
+<p>        &#8220;src/third_party/hunspell_dictionaries&#8221;: None,</p>
+
+<p>    },</p>
+
+<p>    &#8220;safesync_url&#8221;: &#8221;&#8221;,</p>
+
+<p>  },</p>
+
+<p>]</p>
+</blockquote>
+
+<p> </p>
     <hr>
     <div class="pagination">
       <ul>
       
-        <li class="prev"><a href="/2013/02/%e7%ac%94%e8%bf%b9%e5%b9%b3%e6%bb%91%e7%9a%84%e5%ba%94%e7%94%a8/" title="笔迹平滑的应用">&larr; Previous</a></li>
+        <li class="prev"><a href="/2012/12/%e5%9c%a8ubuntu%e5%ae%89%e8%a3%85gitlab%e6%b3%a8%e6%84%8f%e4%ba%8b%e9%a1%b9/
+/" title="在ubuntu安装gitlab注意事项">&larr; Previous</a></li>
       
         <li><a href="/archive.html">Archive</a></li>
       
-        <li class="next disabled"><a>Next &rarr;</a>
+        <li class="next"><a href="/2012/12/%e6%9c%80%e6%96%b0%e9%98%b2%e5%a2%99%e7%ad%96%e7%95%a5/" title="最新防墙策略">Next &rarr;</a></li>
       
       </ul>
     </div>
@@ -143,7 +190,7 @@
   
   <div class="span4">
     <h4>Published</h4>
-    <div class="date"><span>06 February 2013</span></div>
+    <div class="date"><span>07 December 2012</span></div>
 
     
   </div>

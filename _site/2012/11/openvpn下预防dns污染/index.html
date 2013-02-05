@@ -1,0 +1,227 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>openvpn下预防dns污染</title>
+    
+    <meta name="author" content="Yongchao Lao">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="/">Luke同学的牢骚</a>
+          <ul class="nav">
+            
+            
+            
+
+
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>openvpn下预防dns污染 <small>Supporting tagline</small></h1>
+</div>
+
+<div class="row">
+  <div class="span8">
+    <p>#</p>
+
+<p>由于众所周知的原因，我们访问某些网站的时候会遭到封锁，因此不少人选择购买或者自己搭建vpn的方案（当然也可以自己编写软件搭建私有的线路，类似vpn，又或者选择代理–明文代理理论上很容易被墙），我选择了在自己的vps上面搭建openvpn服务。</p>
+
+<p>本以为搭建好了就没什么问题了，但发现这两天访问某些网站间断性的无响应，或者干脆就很长一段时间都无法访问。经过调试猛然发现，dns结果被篡改了！</p>
+
+<p>如果访问数据完全经过vpn的话，那是不存在被篡改的行为的，但在使用openvpn的时候，有两种情况会发生dns查询不经过vpn而走原来的路由：</p>
+
+<ol>
+<li>
+<p>没有配置成服务器下发dns，导致使用了局域网内的dns（那个dns在查询上级的时候遭到了污染）。解决方案是通过push选项下发一个公网的dns，我使用了google的：push “dhcp-option DNS 8.8.8.8″</p>
+</li>
+
+<li>
+<p>设置了路由表，并不是所有流量默认走vpn网关，这种情况多数是因为自己单独设置了路由表，只让部分路由走vpn，以达到速度和效果权衡。我直接从网上找了一个国外路由表，其中没包括8.0.0.0/8。现在加上去就好了。</p>
+</li>
+</ol>
+
+<p>如果不是用vpn并且要防止污染的话，也可以在本地用程序来进行处理，具体参考：</p>
+
+<ol>
+<li>
+<p>月光博客：http://www.williamlong.info/archives/2184.html</p>
+</li>
+
+<li>
+<p>pydnsproxy项目：https://code.google.com/p/pydnsproxy/</p>
+</li>
+</ol>
+
+<p>最后，附上我openvpn的配置：<br />dev tun<br />proto udp<br />port 2294<br />ca /etc/openvpn/easy-rsa/2.0/keys/ca.crt<br />cert /etc/openvpn/easy-rsa/2.0/keys/server.crt<br />key /etc/openvpn/easy-rsa/2.0/keys/server.key<br />dh /etc/openvpn/easy-rsa/2.0/keys/dh1024.pem<br />user nobody<br />group nogroup<br />server 10.8.0.0 255.255.255.0</p>
+
+<p>keepalive 20 120<br />persist-key<br />persist-tun</p>
+
+<h1 id='userpass_auth_from_mysql'>user/pass auth from mysql</h1>
+
+<h1 id='plugin_openvpnauthpamso_openvpn'>plugin ./openvpn-auth-pam.so openvpn</h1>
+
+<h1 id='clientcertnotrequired'>client-cert-not-required</h1>
+
+<h1 id='usernameascommonname'>username-as-common-name</h1>
+
+<p>client-to-client</p>
+
+<p>; push “redirect-gateway def1″ # see route section<br />push “dhcp-option DNS 8.8.8.8″<br />push “dhcp-option DNS 8.8.4.4″</p>
+
+<p>comp-lzo</p>
+
+<p>max-clients 15<br />status status/udp.log<br />log-append /var/log/openvpn/udp.log<br />verb 3<br />mute 5</p>
+
+<h15>route section</h15>
+
+<h1 id='id1'>确保注释掉上面的推送默认路由</h1>
+
+<h1 id='vpnvpn'>然后设置哪些网段由VPN由路由。下面的示例是北美网段由VPN路由。</h1>
+
+<p>push “route 8.0.0.0 255.0.0.0″<br />push “route 24.0.0.0 255.0.0.0″<br />push “route 63.0.0.0 255.0.0.0″<br />push “route 64.0.0.0 255.0.0.0″<br />push “route 65.0.0.0 255.0.0.0″<br />push “route 66.0.0.0 255.0.0.0″<br />push “route 67.0.0.0 255.0.0.0″<br />push “route 68.0.0.0 255.0.0.0″<br />push “route 69.0.0.0 255.0.0.0″<br />push “route 70.0.0.0 255.0.0.0″<br />push “route 71.0.0.0 255.0.0.0″<br />push “route 72.0.0.0 255.0.0.0″<br />push “route 73.0.0.0 255.0.0.0″<br />push “route 74.0.0.0 255.0.0.0″<br />push “route 75.0.0.0 255.0.0.0″<br />push “route 76.0.0.0 255.0.0.0″<br />push “route 96.0.0.0 255.0.0.0″<br />push “route 97.0.0.0 255.0.0.0″<br />push “route 98.0.0.0 255.0.0.0″<br />push “route 99.0.0.0 255.0.0.0″<br />push “route 108.0.0.0 255.0.0.0″<br />push “route 173.0.0.0 255.0.0.0″<br />push “route 174.0.0.0 255.0.0.0″<br />push “route 184.0.0.0 255.0.0.0″<br />push “route 199.0.0.0 255.0.0.0″<br />push “route 204.0.0.0 255.0.0.0″<br />push “route 205.0.0.0 255.0.0.0″<br />push “route 206.0.0.0 255.0.0.0″<br />push “route 207.0.0.0 255.0.0.0″<br />push “route 208.0.0.0 255.0.0.0″<br />push “route 209.0.0.0 255.0.0.0″<br />push “route 216.0.0.0 255.0.0.0″</p>
+
+<h1 id='vpn'>最后，注意设置VPN服务器本身要通过客户端原来的网关访问。这点也很关键。如果客户端在上面路由范围的话</h1>
+
+<p>push “route 我的vpn地址 255.255.255.255 net_gateway”</p>
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/2012/11/luke%e5%90%8c%e5%ad%a6%e7%9a%84%e7%89%a2%e9%aa%9a/" title="Luke同学的牢骚">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next"><a href="/2012/12/%e5%85%b3%e4%ba%8e%e8%81%8c%e4%b8%9a%e7%9a%84%e6%84%9f%e6%83%b3/" title="关于职业的感想">Next &rarr;</a></li>
+      
+      </ul>
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'jekyllbootstrap'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+  
+  <div class="span4">
+    <h4>Published</h4>
+    <div class="date"><span>30 November 2012</span></div>
+
+    
+  </div>
+</div>
+
+
+      </div>
+
+      <footer>
+        <p>&copy; Yongchao Lao 2013
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+  </body>
+</html>
+

@@ -1,0 +1,219 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Mac OSX Mountain Lion下尝试蓝牙SPP server</title>
+    
+    <meta name="author" content="Yongchao Lao">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="/">Luke同学的牢骚</a>
+          <ul class="nav">
+            
+            
+            
+
+
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>Mac OSX Mountain Lion下尝试蓝牙SPP server <small>Supporting tagline</small></h1>
+</div>
+
+<div class="row">
+  <div class="span8">
+    <p>#</p>
+
+<p>因为想搭建一个调试环境，在mountain lion上面通过蓝牙做一个SPP串口服务，用于和android手机的程序（譬如BluetoothChat）进行程序调试，所以就进行了一番尝试，结果是暂时失败的，记录一下。</p>
+
+<p>一、Java的方案</p>
+
+<p>根据文章《<a href='http://www.jsr82.com/jsr-82-sample-spp-server-and-client/'>JSR-82 : Java Bluetooth</a>》提示，可以通过java来使用系统蓝牙服务，能够达到跨平台的效果（当然不同平台有不同的实现或者适配），并且找到了mac下面的一个开源实现–<a href='http://bluecove.org/'>BlueCove</a>。测试的代码在《JSR-82: Java Bluetooth》以及《<a href='http://homepages.ius.edu/RWISMAN/C490/html/JavaandBluetooth.htm'>Java and Bluetooth</a>》这篇文章都有，编译的时候注意包含jar路径即可。由于是32位的库，所以运行的时候需要加上-d32参数。编译和运行的命令行如下：</p>
+
+<blockquote>
+<p>javac -classpath bluecove-2.1.0-10dot6.jar SampleSPPServer.java</p>
+
+<p>java -d32 -classpath &#8220;.:bluecove-2.1.0-10dot6.jar&#8221; SampleSPPServer</p>
+</blockquote>
+
+<p>可惜还是有错：</p>
+
+<blockquote>
+<p>dyld: lazy symbol binding failed: Symbol not found: <em>IOBluetoothLocalDeviceReadSupportedFeatures</em></p>
+
+<p>  Referenced from: /private/var/folders/rv/scdm9d6x6vn_56s7ftzxj_wm0000gn/T/bluecove_laoyongchao_0/libbluecove.jnilib</p>
+
+<p>  Expected in: /System/Library/Frameworks/IOBluetooth.framework/Versions/A/IOBluetooth</p>
+
+<p> </p>
+
+<p>dyld: Symbol not found: <em>IOBluetoothLocalDeviceReadSupportedFeatures</em></p>
+
+<p>  Referenced from: /private/var/folders/rv/scdm9d6x6vn_56s7ftzxj_wm0000gn/T/bluecove_laoyongchao_0/libbluecove.jnilib</p>
+
+<p>  Expected in: /System/Library/Frameworks/IOBluetooth.framework/Versions/A/IOBluetooth</p>
+
+<p> </p>
+
+<p>Trace/BPT trap: 5</p>
+</blockquote>
+
+<p>看起来有符号已经变化了，下载了BlueCove来编译，发现原工程用的是OS X 10.6的SDK，而Mountain Lion已经是10.8了，有部分蓝牙相关的函数已经找不到符号，在苹果的页面已经找到了<a href='https://developer.apple.com/library/mac/#releasenotes/General/APIDiffsMacOSX10_8/IOBluetooth.html'>删除掉接口的说明</a>……</p>
+
+<p>没办法，这需要深入到蓝牙的API，所以暂时不研究。</p>
+
+<p>二、 python的方案</p>
+
+<p>找到一个python的方案叫<a href='http://lightblue.sourceforge.net/'>lightblue</a>，也是一个跨平台的封装，其中还包含了一个naive库叫做LightAquaBlue，只可惜这个方案也不支持mountain lion。</p>
+
+<p>所以目前打算两个方案：</p>
+
+<ol>
+<li>用虚拟机（破解vmware fusion）</li>
+
+<li>自己编译BlueCove（要修改）</li>
+</ol>
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/2012/12/ubuntu%e6%90%ad%e5%bb%ba%e7%bd%91%e9%a1%b5%e7%94%a8%e6%88%b7ftp%e7%9a%84%e6%96%b9%e6%a1%88/
+/" title="ubuntu搭建网页用户ftp的方案">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next"><a href="/2012/12/httplukecafe-com201212mac-osx-mountain-lion%e4%b8%8b%e5%b0%9d%e8%af%95%e8%93%9d%e7%89%99spp-server/
+/" title="续Mac OSX Mountain Lion下尝试蓝牙SPP server">Next &rarr;</a></li>
+      
+      </ul>
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'jekyllbootstrap'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+  
+  <div class="span4">
+    <h4>Published</h4>
+    <div class="date"><span>16 December 2012</span></div>
+
+    
+  </div>
+</div>
+
+
+      </div>
+
+      <footer>
+        <p>&copy; Yongchao Lao 2013
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+  </body>
+</html>
+
