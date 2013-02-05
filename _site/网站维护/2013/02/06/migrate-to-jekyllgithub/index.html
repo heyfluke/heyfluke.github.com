@@ -7,10 +7,10 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<title>笔迹平滑的应用</title>
+	<title>把blog迁移到jekyll/github</title>
 	<meta name="author" content="Yongchao Lao">
 	<link href='/assets/themes/the-program/css/style.css' rel="stylesheet" media="all">
-	<link href="http://feeds.feedburner.com/" rel="alternate" title="笔迹平滑的应用" type="application/atom+xml">
+	<link href="http://feeds.feedburner.com/" rel="alternate" title="把blog迁移到jekyll/github" type="application/atom+xml">
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min.js"></script>
 </head>
 <body>
@@ -44,50 +44,24 @@
 			<header>
 				<div class="unit-head">
 					<div class="unit-inner unit-head-inner">
-						<h1 class="h2 entry-title">笔迹平滑的应用</h1>
+						<h1 class="h2 entry-title">把blog迁移到jekyll/github</h1>
 					</div><!-- unit-inner -->
 				</div><!-- unit-head -->
 			</header>
 
 			<div class="bd">
 				<div class="entry-content">
-					<p>#</p>
+					<p>今天在群里面接触到了<a href='http://marboo.biz'>marboo</a>这个知识组织软件，发现还是挺不错的，它利用目录和文件的天然组织，编排成一个知识树结构，可以用markdown等语言来编写内容，用html呈现出来。很利于知识的管理，所以决定使用一段时间试试。</p>
 
-<p>如果在做一个手写笔迹的应用的话，那一定会遇到曲线平滑的问题，因为在手写设备上边写文字往往会出现笔迹抖动的现象，即采集到的点会出现波动，看起来会比较难看（不像真迹），一个常见的处理方式是把曲线平滑化，即在采集点之间沿着某种平滑曲线进行差值画点，而不是直接把点用直线相连。</p>
+<p>由于使用<a href='http://marboo.biz'>marboo</a>进行管理（它本来就支持jekyll/rst的blog发布，可惜不支持markdown的默认发布为blog），所以顺便就把blog从wordpress迁移到<a href='https://github.com/mojombo/jekyll'>jekyll</a>管理，放在<a href='http://www.github.com'>github</a>上面。</p>
 
-<p><a href='http://en.wikipedia.org/wiki/Bézier_curve'>贝塞尔曲线（Bezier Curve）</a>是常见的一种曲线，它由若干个控制点来控制曲线摆动的方式，具体可以参考wikipedia上面的说明。简单说明一下，n阶贝塞尔曲线就是由n 1个点组成，其中中间的n-1个点作为控制点存在，曲线路径会逼近控制点（如果控制点和前后点在同一直线上的话，在这种特例下曲线退化成直线），视觉上看好像某种力场弯曲了曲线的路径。</p>
-
-<p>在这里我用2阶贝塞尔曲线来实现平滑化，头疼的是控制点的设置，需要凭空制定出来。我采用的方式能够在多数情况下保证曲线很趋近用户写出来的，但并不一定经过笔迹采样的实际点，因为我用这些采样点来做控制点，用前后采样点的中点来做笔迹点。譬如用户写的时候采样到了 P0,P1,P2，那我就在P0,P1之间取线性中点mid0，在P1,P2之间取mid1，然后在P0到mid0之间和mid1,P2之间连接直线，在mid0和mid1之间用贝塞尔曲线控制，控制点为P1。</p>
-
-<p>2阶贝塞尔曲线的算法写出来如下：</p>
-
-<blockquote>
-<p>float t = 0.0f;</p>
-
-<p>            for(unsigned int i = ; i &lt; distance; i )</p>
-
-<p>            {</p>
-
-<p>                CCPoint p;</p>
-
-<p>                p.x = powf(1 – t, 2) * pStart-&gt;x 2.0f * (1 – t) * t * pControl-&gt;x t * t * pEnd-&gt;x;</p>
-
-<p>                p.y = powf(1 – t, 2) * pStart-&gt;y 2.0f * (1 – t) * t * pControl-&gt;y t * t * pEnd-&gt;y;</p>
-
-<p>                t = 1.0f / distance;</p>
-
-<p>            }<br /> </p>
-</blockquote>
-
-<p>这种情况下，产生的笔迹和采样点如下，可见采样不够密集的时候（写得快的时候）会出现比较明显的笔迹不在采样点上面的情况：</p>
-
-<p><img alt='' src='/wp-content/uploads/ckfinder/images/Snip20130204_3.png' /></p>
+<p>整体弄好以后发现效果还不错，挺喜欢这样的编写方式。</p>
 					<div class="meta">
 						<p class="date-publish">
 							Published: 
-							<date class="date-pub" title="2013-02-04T00:00:00+08:00" datetime="2013-02-04T00:00:00+08:00" pubdate>
+							<date class="date-pub" title="2013-02-06T00:00:00+08:00" datetime="2013-02-06T00:00:00+08:00" pubdate>
 							<span class="month"><abbr>February</abbr></span>
-							<span class="day">04</span>
+							<span class="day">06</span>
 							<span class="year">2013</span>
 							</date>
 						</p>
@@ -99,8 +73,8 @@
 
   
      
-    	<li><a href="/categories.html#算法-ref">
-    		算法 <span>1</span>
+    	<li><a href="/categories.html#网站维护-ref">
+    		网站维护 <span>1</span>
     	</a></li>
     
   
@@ -115,15 +89,9 @@
 
   
      
-    	<li><a href="/tags.html#Bezier-ref">Bezier <span>1</span></a></li>
+    	<li><a href="/tags.html#jekyll-ref">jekyll <span>2</span></a></li>
      
-    	<li><a href="/tags.html#Bezier curve-ref">Bezier curve <span>1</span></a></li>
-     
-    	<li><a href="/tags.html#quadratic bezier curveni-ref">quadratic bezier curveni <span>1</span></a></li>
-     
-    	<li><a href="/tags.html#曲线-ref">曲线 <span>1</span></a></li>
-     
-    	<li><a href="/tags.html#贝塞尔-ref">贝塞尔 <span>1</span></a></li>
+    	<li><a href="/tags.html#marboo-ref">marboo <span>1</span></a></li>
     
   
 
@@ -169,13 +137,9 @@
 					<nav class="pagination">
 						<ul>
 							
-							<li class="prev"><a class="internal" rel="prev"  href="/2013/02/%e8%b4%b4%e4%b8%80%e4%b8%aaamazon-ec2%e7%9a%84micro%e5%ae%9e%e4%be%8b%e7%9a%84benchmark/" title="View 贴一个Amazon EC2的micro实例的benchmark">&laquo; 贴一个Amazon EC2的micro实例的benchmark</a></li>
+							<li class="prev"><a class="internal" rel="prev"  href="/2013/02/%e7%ac%94%e8%bf%b9%e5%b9%b3%e6%bb%91%e7%9a%84%e5%ba%94%e7%94%a8/" title="View 笔迹平滑的应用">&laquo; 笔迹平滑的应用</a></li>
 							
 							
-							<li class="pipe"> | </li>
-							
-							
-							<li class="next"><a class="internal" rel="next"  href="/%E7%BD%91%E7%AB%99%E7%BB%B4%E6%8A%A4/2013/02/06/migrate-to-jekyllgithub" title="View 把blog迁移到jekyll/github">把blog迁移到jekyll/github &raquo;</a></li>
 							
 						</ul>
 					</nav>
@@ -223,7 +187,7 @@
 		};
 	load('//platform.twitter.com/widgets.js', 'tweetjs');
 	// load('https://apis.google.com/js/plusone.js', 'gplus1js'); // Checkout http://j.mp/ApDgMr for usage html for this is <div class="g-plusone" data-size="medium"></div>
-	// load('//connect.facebook.net/en_US/all.js#xfbml=1', 'fbjssdk'); // Checkout http://j.mp/wZw2xR for using open graph protorol html for this is <div class="fb-like" data-href="/2013/02/%e7%ac%94%e8%bf%b9%e5%b9%b3%e6%bb%91%e7%9a%84%e5%ba%94%e7%94%a8/" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-font="verdana"></div>
+	// load('//connect.facebook.net/en_US/all.js#xfbml=1', 'fbjssdk'); // Checkout http://j.mp/wZw2xR for using open graph protorol html for this is <div class="fb-like" data-href="/%E7%BD%91%E7%AB%99%E7%BB%B4%E6%8A%A4/2013/02/06/migrate-to-jekyllgithub" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-font="verdana"></div>
 	}(document, 'script'));
 </script>
 <script>

@@ -4,13 +4,25 @@
  <title>Luke同学的牢骚</title>
  <link href="http://gotomato.tk/atom.xml" rel="self"/>
  <link href="http://gotomato.tk"/>
- <updated>2013-02-06T03:59:49+08:00</updated>
+ <updated>2013-02-06T04:24:57+08:00</updated>
  <id>http://gotomato.tk</id>
  <author>
    <name>Yongchao Lao</name>
    <email>fluke.l@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>把blog迁移到jekyll/github</title>
+   <link href="http://gotomato.tk/%E7%BD%91%E7%AB%99%E7%BB%B4%E6%8A%A4/2013/02/06/migrate-to-jekyllgithub"/>
+   <updated>2013-02-06T00:00:00+08:00</updated>
+   <id>http://gotomato.tk/%E7%BD%91%E7%AB%99%E7%BB%B4%E6%8A%A4/2013/02/06/migrate-to-jekyllgithub</id>
+   <content type="html">&lt;p&gt;今天在群里面接触到了&lt;a href='http://marboo.biz'&gt;marboo&lt;/a&gt;这个知识组织软件，发现还是挺不错的，它利用目录和文件的天然组织，编排成一个知识树结构，可以用markdown等语言来编写内容，用html呈现出来。很利于知识的管理，所以决定使用一段时间试试。&lt;/p&gt;
+
+&lt;p&gt;由于使用&lt;a href='http://marboo.biz'&gt;marboo&lt;/a&gt;进行管理（它本来就支持jekyll/rst的blog发布，可惜不支持markdown的默认发布为blog），所以顺便就把blog从wordpress迁移到&lt;a href='https://github.com/mojombo/jekyll'&gt;jekyll&lt;/a&gt;管理，放在&lt;a href='http://www.github.com'&gt;github&lt;/a&gt;上面。&lt;/p&gt;
+
+&lt;p&gt;整体弄好以后发现效果还不错，挺喜欢这样的编写方式。&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>笔迹平滑的应用</title>
@@ -317,17 +329,17 @@
 
 &lt;p&gt; &lt;/p&gt;
 
-&lt;h1 id='id138' /&gt;
+&lt;h1 id='id255' /&gt;
 
-&lt;h1 id='id139' /&gt;
+&lt;h1 id='id256' /&gt;
 
-&lt;h1 id='id140' /&gt;
+&lt;h1 id='id257' /&gt;
 
-&lt;h1 id='id141' /&gt;
+&lt;h1 id='id258' /&gt;
 
-&lt;h1 id='id142' /&gt;
+&lt;h1 id='id259' /&gt;
 
-&lt;h4 id='id143' /&gt;
+&lt;h4 id='id260' /&gt;
 
 &lt;p&gt;Version 5.1.2 Based on the Byte Magazine Unix Benchmark&lt;/p&gt;
 
@@ -1453,7 +1465,7 @@
 
 &lt;h15&gt;route section&lt;/h15&gt;
 
-&lt;h1 id='id137'&gt;确保注释掉上面的推送默认路由&lt;/h1&gt;
+&lt;h1 id='id254'&gt;确保注释掉上面的推送默认路由&lt;/h1&gt;
 
 &lt;h1 id='vpnvpn'&gt;然后设置哪些网段由VPN由路由。下面的示例是北美网段由VPN路由。&lt;/h1&gt;
 
