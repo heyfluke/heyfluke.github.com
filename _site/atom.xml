@@ -4,7 +4,7 @@
  <title>Luke同学的牢骚</title>
  <link href="http://gotomato.tk/atom.xml" rel="self"/>
  <link href="http://gotomato.tk"/>
- <updated>2013-02-06T02:53:17+08:00</updated>
+ <updated>2013-02-06T02:55:14+08:00</updated>
  <id>http://gotomato.tk</id>
  <author>
    <name>Yongchao Lao</name>
@@ -1151,7 +1151,7 @@
    <link href="http://gotomato.tk/2012/12/post%e8%af%95%e7%94%a8homebrew%ef%bc%8c%e4%b8%80%e4%b8%aa%e4%bc%98%e9%9b%85%e7%9a%84%e5%8c%85%e7%ae%a1%e7%90%86/
 /"/>
    <updated>2012-12-06T00:00:00+08:00</updated>
-   <id>http://gotomato.tk/2012/12/post%e8%af%95%e7%94%a8homebrew%ef%bc%8c%e4%b8%80%e4%b8%aa%e4%bc%98%e9%9b%85%e7%9a%84%e5%8c%85%e7%ae%a1%e7%90%86/%e8%af%95%e7%94%a8homebrew%ef%bc%8c%e4%b8%80%e4%b8%aa%e4%bc%98%e9%9b%85%e7%9a%84%e5%8c%85%e7%ae%a1%e7%90%86</id>
+   <id>http://gotomato.tk/2012/12/post%e8%af%95%e7%94%a8homebrew%ef%bc%8c%e4%b8%80%e4%b8%aa%e4%bc%98%e9%9b%85%e7%9a%84%e5%8c%85%e7%ae%a1%e7%90%86/post%e8%af%95%e7%94%a8homebrew%ef%bc%8c%e4%b8%80%e4%b8%aa%e4%bc%98%e9%9b%85%e7%9a%84%e5%8c%85%e7%ae%a1%e7%90%86</id>
    <content type="html">&lt;p&gt;#&lt;/p&gt;
 
 &lt;p&gt;因为&lt;a href='http://macports.org'&gt;macports&lt;/a&gt;全都不需要编译，这时间不值得浪费，所以就想找找看有没有二进制的包管理，找到了一个apt-get的移植版本–&lt;a href='http://www.finkproject.org/'&gt;fink&lt;/a&gt;，只可惜还没开始支持&lt;a href='http://www.apple.com/osx/'&gt;mountain lion&lt;/a&gt;。经微博朋友介绍，有一个更好的，叫Homebrew。&lt;/p&gt;
