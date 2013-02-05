@@ -1,0 +1,213 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>cocos2d-x开发模式-更新画面或者游戏世界</title>
+    
+    <meta name="author" content="Yongchao Lao">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="/">Luke同学的牢骚</a>
+          <ul class="nav">
+            
+            
+            
+
+
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>cocos2d-x开发模式-更新画面或者游戏世界 <small>Supporting tagline</small></h1>
+</div>
+
+<div class="row">
+  <div class="span8">
+    <p>#</p>
+
+<p>在CCObject里面有一个函数是：</p>
+
+<blockquote>
+<p>virtual void update(float dt) {CC_UNUSED_PARAM(dt);};</p>
+</blockquote>
+
+<p>在cocos2d-x里面可以做到对每个CCObject周期性地调用这个函数，方法是调用CCNode的scheduleUpdate函数：</p>
+
+<blockquote>
+<p>    /** schedules the &#8220;update&#8221; method. It will use the order number 0. This method will be called every frame.</p>
+
+<p>     Scheduled methods with a lower order value will be called before the ones that have a higher order value.</p>
+
+<p>     Only one &#8220;update&#8221; method could be scheduled per node.</p>
+
+<p> </p>
+
+<p>     @since v0.99.3</p>
+
+<p>     <em>/</em></p>
+
+<p>    void scheduleUpdate(void);</p>
+</blockquote>
+
+<p>因为update函数的调用是在主线程，而且频度很高，所以适合在这里进行后台网络数据的检查或者游戏世界的更新，然后绘制出来。由于这两个函数在 CCNode就已经被定义，所以诸如 CCLayer、CCSprite等具体类里面都可以直接使用这种方法。</p>
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/2013/01/%e5%9c%a8%e8%b6%8a%e7%8b%b1%e5%90%8e%e7%9a%84ipad%e4%b8%ad%e6%89%be%e5%88%ab%e7%9a%84%e7%a8%8b%e5%ba%8f%e7%9b%ae%e5%bd%95/" title="在越狱后的iPad中找别的程序目录">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next"><a href="/2013/01/ios%e8%b7%a8%e5%b9%b3%e5%8f%b0%e5%bc%80%e5%8f%91-posix%e4%bf%a1%e5%8f%b7%e9%87%8f%e7%9a%84%e6%94%af%e6%8c%81/" title="ios跨平台开发-POSIX信号量的支持">Next &rarr;</a></li>
+      
+      </ul>
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'jekyllbootstrap'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+  
+  <div class="span4">
+    <h4>Published</h4>
+    <div class="date"><span>30 January 2013</span></div>
+
+  
+    <h4>Tags</h4>
+    <ul class="tag_box">
+    
+    
+
+
+  
+     
+    	<li><a href="/tags.html#android-ref">android <span>2</span></a></li>
+     
+    	<li><a href="/tags.html#cocos-2dx-ref">cocos-2dx <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#iOS-ref">iOS <span>4</span></a></li>
+    
+  
+
+
+
+    </ul>
+    
+  </div>
+</div>
+
+
+      </div>
+
+      <footer>
+        <p>&copy; Yongchao Lao 2013
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+  </body>
+</html>
+

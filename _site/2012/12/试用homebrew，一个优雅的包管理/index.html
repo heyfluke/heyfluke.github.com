@@ -1,0 +1,235 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>试用homebrew，一个优雅的包管理</title>
+    
+    <meta name="author" content="Yongchao Lao">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="/">Luke同学的牢骚</a>
+          <ul class="nav">
+            
+            
+            
+
+
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>试用homebrew，一个优雅的包管理 <small>Supporting tagline</small></h1>
+</div>
+
+<div class="row">
+  <div class="span8">
+    <p>#</p>
+
+<p>因为<a href='http://macports.org'>macports</a>全都不需要编译，这时间不值得浪费，所以就想找找看有没有二进制的包管理，找到了一个apt-get的移植版本–<a href='http://www.finkproject.org/'>fink</a>，只可惜还没开始支持<a href='http://www.apple.com/osx/'>mountain lion</a>。经微博朋友介绍，有一个更好的，叫Homebrew。</p>
+
+<p>尝试了一下，Homebrew是很有意思的一个软件，也比较现代。首先名字起的比较有意思，它的二进制包仓库（没仔细了解是不是仓库）叫bottle，刚好和homebrew(酿造)的名字对应上，默认情况下，如果有二进制可用就不进行编译。它安装的文件放在Cellar里面（在/usr/local/Cellar–Homebrew坚持把自己放在/usr/local下面，减少对系统的污染，也更加方便管理）。每个人自己可以编辑自己的formula–包规则文件，并且很好地和源（或者叫upstream–你可以pull一些私有的仓库）进行合并，这得益于homebrew是基于git的。</p>
+
+<p>安装homebrew很简单，<a href='http://mxcl.github.com/homebrew/'>官方主页</a>最新的介绍，用ruby执行一句命令即可：</p>
+
+<blockquote>
+<p>ruby -e &#8220;$(curl -fsSkL raw.github.com/mxcl/homebrew/go)&#8221;</p>
+</blockquote>
+
+<p>需要注意的是，homebrew和macports的默认位置冲突，所以需要先删除后者，参考：</p>
+
+<blockquote />
+
+<p>安装的过程也蛮简洁明了，一些交互的语句让人比较喜欢：</p>
+
+<blockquote>
+<p>LaotekiMacBook-Pro:elasticnodes laoyongchao$ ruby -e &#8220;$(curl -fsSkL raw.github.com/mxcl/homebrew/go)&#8221;</p>
+
+<p>/usr/local/bin/brew</p>
+
+<p>/usr/local/Library/…</p>
+
+<p>/usr/local/share/man/man1/brew.1</p>
+
+<p>/usr/local/.</p>
+
+<p>/usr/local/bin</p>
+
+<p>/usr/local/include</p>
+
+<p>/usr/local/lib</p>
+
+<p>/usr/local/.</p>
+
+<p>/usr/local/bin</p>
+
+<p>/usr/local/include</p>
+
+<p>/usr/local/lib</p>
+
+<p> </p>
+
+<p>Press ENTER to continue or any other key to abort</p>
+
+<p>Password:</p>
+
+<p>remote: Counting objects: 90226, done.</p>
+
+<p>remote: Compressing objects: 100% (41869/41869), done.</p>
+
+<p>remote: Total 90226 (delta 62927), reused 72135 (delta 47515)</p>
+
+<p>Receiving objects: 100% (90226/90226), 12.97 MiB | 149 KiB/s, done.</p>
+
+<p>Resolving deltas: 100% (62927/62927), done.</p>
+
+<p>From https://github.com/mxcl/homebrew</p>
+
+<p> * <span>new branch</span>      master     -&gt; origin/master</p>
+
+<p>HEAD is now at 201d4e8 ht 2.0.21</p>
+
+<p>You should run <code>brew doctor&#39; \*before\* you install anything.</code></p>
+
+<p>Now type: brew help</p>
+</blockquote>
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/2012/12/android%e8%93%9d%e7%89%99%e4%b8%b2%e5%8f%a3%e7%bc%96%e7%a8%8b%e9%9c%80%e8%a6%81%e6%b3%a8%e6%84%8f%e7%9a%84%e5%9c%b0%e6%96%b9/" title="Android蓝牙串口编程需要注意的地方">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next"><a href="/2012/12/%e5%9c%a8ubuntu%e5%ae%89%e8%a3%85gitlab%e6%b3%a8%e6%84%8f%e4%ba%8b%e9%a1%b9/" title="在ubuntu安装gitlab注意事项">Next &rarr;</a></li>
+      
+      </ul>
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'jekyllbootstrap'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+  
+  <div class="span4">
+    <h4>Published</h4>
+    <div class="date"><span>06 December 2012</span></div>
+
+    
+  </div>
+</div>
+
+
+      </div>
+
+      <footer>
+        <p>&copy; Yongchao Lao 2013
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+  </body>
+</html>
+

@@ -1,0 +1,221 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>笔迹平滑的应用</title>
+    
+    <meta name="author" content="Yongchao Lao">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="/">Luke同学的牢骚</a>
+          <ul class="nav">
+            
+            
+            
+
+
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>笔迹平滑的应用 <small>Supporting tagline</small></h1>
+</div>
+
+<div class="row">
+  <div class="span8">
+    <p>#</p>
+
+<p>如果在做一个手写笔迹的应用的话，那一定会遇到曲线平滑的问题，因为在手写设备上边写文字往往会出现笔迹抖动的现象，即采集到的点会出现波动，看起来会比较难看（不像真迹），一个常见的处理方式是把曲线平滑化，即在采集点之间沿着某种平滑曲线进行差值画点，而不是直接把点用直线相连。</p>
+
+<p><a href='http://en.wikipedia.org/wiki/Bézier_curve'>贝塞尔曲线（Bezier Curve）</a>是常见的一种曲线，它由若干个控制点来控制曲线摆动的方式，具体可以参考wikipedia上面的说明。简单说明一下，n阶贝塞尔曲线就是由n 1个点组成，其中中间的n-1个点作为控制点存在，曲线路径会逼近控制点（如果控制点和前后点在同一直线上的话，在这种特例下曲线退化成直线），视觉上看好像某种力场弯曲了曲线的路径。</p>
+
+<p>在这里我用2阶贝塞尔曲线来实现平滑化，头疼的是控制点的设置，需要凭空制定出来。我采用的方式能够在多数情况下保证曲线很趋近用户写出来的，但并不一定经过笔迹采样的实际点，因为我用这些采样点来做控制点，用前后采样点的中点来做笔迹点。譬如用户写的时候采样到了 P0,P1,P2，那我就在P0,P1之间取线性中点mid0，在P1,P2之间取mid1，然后在P0到mid0之间和mid1,P2之间连接直线，在mid0和mid1之间用贝塞尔曲线控制，控制点为P1。</p>
+
+<p>2阶贝塞尔曲线的算法写出来如下：</p>
+
+<blockquote>
+<p>float t = 0.0f;</p>
+
+<p>            for(unsigned int i = ; i &lt; distance; i )</p>
+
+<p>            {</p>
+
+<p>                CCPoint p;</p>
+
+<p>                p.x = powf(1 – t, 2) * pStart-&gt;x 2.0f * (1 – t) * t * pControl-&gt;x t * t * pEnd-&gt;x;</p>
+
+<p>                p.y = powf(1 – t, 2) * pStart-&gt;y 2.0f * (1 – t) * t * pControl-&gt;y t * t * pEnd-&gt;y;</p>
+
+<p>                t = 1.0f / distance;</p>
+
+<p>            }<br /> </p>
+</blockquote>
+
+<p>这种情况下，产生的笔迹和采样点如下，可见采样不够密集的时候（写得快的时候）会出现比较明显的笔迹不在采样点上面的情况：</p>
+
+<p><img alt='' src='/wp-content/uploads/ckfinder/images/Snip20130204_3.png' /></p>
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/2013/02/%e8%b4%b4%e4%b8%80%e4%b8%aaamazon-ec2%e7%9a%84micro%e5%ae%9e%e4%be%8b%e7%9a%84benchmark/" title="贴一个Amazon EC2的micro实例的benchmark">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next disabled"><a>Next &rarr;</a>
+      
+      </ul>
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'jekyllbootstrap'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+  
+  <div class="span4">
+    <h4>Published</h4>
+    <div class="date"><span>04 February 2013</span></div>
+
+  
+    <h4>Tags</h4>
+    <ul class="tag_box">
+    
+    
+
+
+  
+     
+    	<li><a href="/tags.html#Bezier-ref">Bezier <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#Bezier curve-ref">Bezier curve <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#quadratic bezier curveni-ref">quadratic bezier curveni <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#曲线-ref">曲线 <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#贝塞尔-ref">贝塞尔 <span>1</span></a></li>
+    
+  
+
+
+
+    </ul>
+    
+  </div>
+</div>
+
+
+      </div>
+
+      <footer>
+        <p>&copy; Yongchao Lao 2013
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+  </body>
+</html>
+

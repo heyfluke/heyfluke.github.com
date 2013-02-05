@@ -1,0 +1,215 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>续Mac OSX Mountain Lion下尝试蓝牙SPP server</title>
+    
+    <meta name="author" content="Yongchao Lao">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="/">Luke同学的牢骚</a>
+          <ul class="nav">
+            
+            
+            
+
+
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>续Mac OSX Mountain Lion下尝试蓝牙SPP server <small>Supporting tagline</small></h1>
+</div>
+
+<div class="row">
+  <div class="span8">
+    <p>#</p>
+
+<p>之前写了《<a href='http://lukecafe.com/2012/12/mac-osx-mountain-lion下尝试蓝牙spp-server/'>Mac OSX Mountain Lion下尝试蓝牙SPP server</a>》，说明在 Mountain Lion下面由于蓝牙API的变化已经不容易编写串口程序，但是突然想起一个很简单的方法，原来一定是大脑短路了没想到。</p>
+
+<p>蓝牙SPP服务无非就是一种串口通信，而在*INX下面，会把串口写成/dev/tty*设备，并且是字符串设备，可以直接与这个设备进行读写的通信。</p>
+
+<p>基于这个事实，想要做到测试最简单的方式就是编写脚本，用python的serial模块很方便就能够做到了。</p>
+
+<p>示例：</p>
+
+<blockquote>
+<h1 id='usrbinenv_python'>!/usr/bin/env python</h1>
+
+<p> </p>
+
+<p>import serial</p>
+
+<p> </p>
+
+<p>def main():</p>
+
+<p>print &#8216;===== Test Serial Communication =====&#8217;</p>
+
+<p>ser = serial.Serial(&#8216;/dev/tty.Bluetooth-PDA-Sync&#8217;, 9600, timeout=10)</p>
+
+<p>recvbuf = &#8221;</p>
+
+<p>while True:</p>
+
+<p>char = ser.read(1)</p>
+
+<p>if not len(char): continue</p>
+
+<p>recvbuf = char</p>
+
+<h1 id='todo_parse_proto'>TODO: parse proto</h1>
+
+<p>ser.write(char)</p>
+
+<p> </p>
+
+<p>ser.close()</p>
+
+<p> </p>
+
+<p>if __name__ == &#8216;__main__&#8217;:</p>
+
+<p>main()</p>
+</blockquote>
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/2012/12/mac-osx-mountain-lion%e4%b8%8b%e5%b0%9d%e8%af%95%e8%93%9d%e7%89%99spp-server/" title="Mac OSX Mountain Lion下尝试蓝牙SPP server">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next"><a href="/2012/12/%e7%bb%99gitlab%e5%8a%a0%e4%b8%8agoogle-analytics%e7%9a%84%e7%bb%9f%e8%ae%a1%e8%b7%9f%e8%b8%aa%e4%bb%a3%e7%a0%81/" title="给gitlab加上Google Analytics的统计跟踪代码">Next &rarr;</a></li>
+      
+      </ul>
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'jekyllbootstrap'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+  
+  <div class="span4">
+    <h4>Published</h4>
+    <div class="date"><span>19 December 2012</span></div>
+
+    
+  </div>
+</div>
+
+
+      </div>
+
+      <footer>
+        <p>&copy; Yongchao Lao 2013
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+  </body>
+</html>
+
