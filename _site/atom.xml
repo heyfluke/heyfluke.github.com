@@ -4,7 +4,7 @@
  <title>Luke同学的牢骚</title>
  <link href="http://lukecafe.com/atom.xml" rel="self"/>
  <link href="http://lukecafe.com"/>
- <updated>2013-02-07T16:43:03+08:00</updated>
+ <updated>2013-02-07T17:09:03+08:00</updated>
  <id>http://lukecafe.com</id>
  <author>
    <name>Yongchao Lao</name>
@@ -108,7 +108,7 @@
 
 &lt;p&gt;这种情况下，产生的笔迹和采样点如下，可见采样不够密集的时候（写得快的时候）会出现比较明显的笔迹不在采样点上面的情况：&lt;/p&gt;
 
-&lt;p&gt;&lt;img src='/wp-content/uploads/ckfinder/images/Snip20130204_3.png' alt='' /&gt;&lt;/p&gt;</content>
+&lt;p&gt;&lt;img alt='' src='/wp-content/uploads/ckfinder/images/Snip20130204_3.png' /&gt;&lt;/p&gt;</content>
  </entry>
  
  <entry>
