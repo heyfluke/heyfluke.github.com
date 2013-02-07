@@ -4,13 +4,62 @@
  <title>Luke同学的牢骚</title>
  <link href="http://lukecafe.com/atom.xml" rel="self"/>
  <link href="http://lukecafe.com"/>
- <updated>2013-02-07T14:52:44+08:00</updated>
+ <updated>2013-02-07T16:43:03+08:00</updated>
  <id>http://lukecafe.com</id>
  <author>
    <name>Yongchao Lao</name>
    <email>fluke.l@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>错怪了jekyll和ruby</title>
+   <link href="http://lukecafe.com/2013/02/mistanding-jekyll"/>
+   <updated>2013-02-07T00:00:00+08:00</updated>
+   <id>http://lukecafe.com/2013/02/mistanding-jekyll</id>
+   <content type="html">&lt;h1 id='id2'&gt;发现问题&lt;/h1&gt;
+
+&lt;p&gt;在进行jekyll的时候，发现有一些错误提示信息很诡异，看起来似乎残留了homebrew的信息。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; ___________________________________________________________________________
+| Maruku tells you:
++---------------------------------------------------------------------------
+| String finished while reading (break on []) already read: &amp;quot;brew doctor&amp;#39; \\*before\\* you install 	anything.&amp;quot;
+| ---------------------------------------------------------------------------
+| You should run `brew doctor&amp;#39; \*before\* you install anything.EOF
+| -------------------------------------------------------------|--------------
+|                                                              +--- Byte 61
+| Shown bytes [0 to 61] of 61:
+| &amp;gt;You should run `brew doctor&amp;#39; \*before\* you install anything.
+| 
+| At line 84
+|    header1     |==&amp;gt; Installation successful!|
+|      empty     ||
+|       text     |You should run `brew doctor&amp;#39; \*before\* you install anything.|
+|      empty --&amp;gt; ||
+|       text     |Now type: brew help|
++---------------------------------------------------------------------------
+!/Library/Ruby/Gems/1.8/gems/maruku-0.6.1/lib/maruku/errors_management.rb:49:in `maruku_error&amp;#39;
+!/Library/Ruby/Gems/1.8/gems/maruku-0.6.1/lib/maruku/input/parse_span_better.rb:402:in `read_simple&amp;#39;
+!/Library/Ruby/Gems/1.8/gems/maruku-0.6.1/lib/maruku/input/parse_span_better.rb:521:in `read_inline_	code&amp;#39;
+!/Library/Ruby/Gems/1.8/gems/maruku-0.6.1/lib/maruku/input/parse_span_better.rb:89:in `read_span&amp;#39;
+!/Library/Ruby/Gems/1.8/gems/maruku-0.6.1/lib/maruku/input/parse_span_better.rb:46:in `parse_span_	better&amp;#39;
+\___________________________________________________________________________&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id='id3'&gt;解决问题&lt;/h1&gt;
+
+&lt;p&gt;由于不懂ruby，暂时也没时间去学习，所以暂时怀疑是ruby安装的一些包是经过homebrew的，所以想办法先卸载所有的ruby包，这里把所有的gem都卸载掉。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;for x in `gem list --no-versions`; do sudo gem uninstall $x -a -x -I; done&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;然后重新安装jekyll:sudo gem install jekyll。&lt;/p&gt;
+
+&lt;p&gt;重新运行jekyll以后发现问题并没有被解决掉。。&lt;/p&gt;
+
+&lt;p&gt;后来当然是从要处理的文档入手，jekyll肯定是在处理某条blog的过程中发生了问题，通过二分法很快找到了出问题的文档，竟然是“试用homebrew，一个优雅的包管理”这篇文章的……所以里面出现homebrew相关字样也就不足为奇了。&lt;/p&gt;
+
+&lt;p&gt;主要是导出的markdown格式处理起来有问题，顺便也发现了通过插件把wordpress导出到jekyll的过程，可能缺失或者弄错了一些东西，包括链接可能会丢失，单行区块引用可能会出问题等。&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>把blog迁移到jekyll/github</title>
@@ -59,7 +108,7 @@
 
 &lt;p&gt;这种情况下，产生的笔迹和采样点如下，可见采样不够密集的时候（写得快的时候）会出现比较明显的笔迹不在采样点上面的情况：&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt='' src='/wp-content/uploads/ckfinder/images/Snip20130204_3.png' /&gt;&lt;/p&gt;</content>
+&lt;p&gt;&lt;img src='/wp-content/uploads/ckfinder/images/Snip20130204_3.png' alt='' /&gt;&lt;/p&gt;</content>
  </entry>
  
  <entry>

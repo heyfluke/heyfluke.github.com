@@ -2,13 +2,8 @@
 layout: post
 title: "把blog迁移到jekyll/github"
 description: ""
-category: - 网站维护
-tags: 
- - jekyll 
- - marboo
- - github pages
- - blog
- - wordpress
+category: 网站维护
+tags: [jekyll,  marboo, github pages, blog, wordpress]
 permalink: /2013/02/migrate-to-jekyllgithub/
 ---
 {% include JB/setup %}

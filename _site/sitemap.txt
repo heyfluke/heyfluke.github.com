@@ -8,6 +8,7 @@ http://lukecafe.com/pages.html
 http://lukecafe.com/sitemap.txt
 http://lukecafe.com/tags.html
 
+http://lukecafe.com/2013/02/mistanding-jekyll
 http://lukecafe.com/2013/02/migrate-to-jekyllgithub/
 http://lukecafe.com/2013/02/%e7%ac%94%e8%bf%b9%e5%b9%b3%e6%bb%91%e7%9a%84%e5%ba%94%e7%94%a8/
 http://lukecafe.com/2013/02/%e8%b4%b4%e4%b8%80%e4%b8%aaamazon-ec2%e7%9a%84micro%e5%ae%9e%e4%be%8b%e7%9a%84benchmark/
