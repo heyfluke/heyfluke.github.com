@@ -51,17 +51,13 @@
 
 			<div class="bd">
 				<div class="entry-content">
-					<p>#</p>
-
-<p>由于反向工程等需要，可能需要查看别的iOS程序所在目录，那就需要把设备越狱掉了。</p>
+					<p>由于反向工程等需要，可能需要查看别的iOS程序所在目录，那就需要把设备越狱掉了。</p>
 
 <p>越狱以后，可以用iFile来浏览所有目录，也可以用更加方便的ssh，只需要在设置里面开启ssh即可，然后上去查找/var/mobile/Applications目录即可。例如我找海豚浏览器的目录：</p>
 
-<blockquote>
-<p>connectu:~ root# find /var/mobile/Applications/ -name &#8221;<em>olphin&#8221;</em></p>
+<pre><code>connectu:~ root# find /var/mobile/Applications/ -name &quot;*olphin&quot;
 
-<p>/var/mobile/Applications/B4C61F9B-1C2D-4C9A-B471-D784E5A48E81/Dolphin.app/Dolphin</p>
-</blockquote>
+/var/mobile/Applications/B4C61F9B-1C2D-4C9A-B471-D784E5A48E81/Dolphin.app/Dolphin</code></pre>
 
 <p> </p>
 					<div class="meta">
@@ -123,7 +119,7 @@
 
   <div id="disqus_thread"></div>
 <script type="text/javascript">
-    var disqus_developer = 1;
+    
     var disqus_shortname = 'lukescafe'; // required: replace example with your forum shortname
     
     /* * * DON'T EDIT BELOW THIS LINE * * */
@@ -210,6 +206,22 @@
 </script>
   
   
+
+
+  <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36648569-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
 </body>
 </html>
 

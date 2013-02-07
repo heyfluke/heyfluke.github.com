@@ -11,59 +11,47 @@ tags:
   - haml
   - javascript
 ---
-# 
 
 Google Analytics提供了javascript代码来进行跟踪统计，要插入gitlab中，需要编辑它的layout文件，这种文件用的是haml格式（ruby的一种html模板语言）。
 
 要往haml里面添加javascript内容，需要用到**:javascript**过滤器。如果google提供的代码如下：
 
-> 
-> 
->  
-> 
->   var \_gaq = \_gaq || [];
-> 
->   \_gaq.push(['\_setAccount', 'XXXX']);
-> 
->   \_gaq.push(['\_trackPageview']);
-> 
->  
-> 
->   (function() {
-> 
->     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-> 
->     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') '.google-analytics.com/ga.js';
-> 
->     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-> 
->   })();
-> 
->  
-> 
-> 
-> 
-> 则需要往gitlab/app/views/layout/_head.html.haml文件最后添加的代码是：
-> 
-> > :javascript
-> > 
-> >   var \_gaq = \_gaq || [];
-> > 
-> >   \_gaq.push(['\_setAccount', 'XXXX']);
-> > 
-> >   \_gaq.push(['\_trackPageview']);
-> > 
-> >  
-> > 
-> >   (function() {
-> > 
-> >     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-> > 
-> >     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') '.google-analytics.com/ga.js';
-> > 
-> >     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-> > 
-> >   })();
-> 
->   
->  
+	  var _gaq = _gaq || [];
+	
+	  _gaq.push(['_setAccount', 'XXXX']);
+	
+	  _gaq.push(['_trackPageview']);
+	
+	 
+	
+	  (function() {
+	
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') '.google-a  	tics.com/ga.js';
+	
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	
+	  })();
+	
+则需要往gitlab/app/views/layout/_head.html.haml文件最后添加的代码是：
+
+	:javascript
+	
+	  var _gaq = _gaq || [];
+	
+	  _gaq.push(['_setAccount', 'XXXX']);
+	
+	  _gaq.push(['_trackPageview']);
+	
+	 
+	
+	  (function() {
+	
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') '.google-		cs.com/ga.js';
+	
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	
+	  })();

@@ -51,15 +51,15 @@
 
 			<div class="bd">
 				<div class="entry-content">
-					<p>#</p>
-
-<p>才开始转用mac不久，就遇上了两个Mountain Lion的bug，其中第一个应该是系统级别的bug，希望近期能够修复。</p>
+					<p>才开始转用mac不久，就遇上了两个Mountain Lion的bug，其中第一个应该是系统级别的bug，希望近期能够修复。</p>
 
 <ol>
-<li>应用程序中的“show in Finder”或者“在Finder中显示”功能失效。这个很诡异，我一开始还以为是金山快盘修改了Finder里面的icon功能导致的，后来到stackoverflow看了一下，发现是消息队列的bug，看来还有潜在的别的问题，譬如拖拽等。解决办法是kill掉appleeventsd（不需要重启了？不清楚）：</li>
-</ol>
+<li>
+<p>应用程序中的“show in Finder”或者“在Finder中显示”功能失效。这个很诡异，我一开始还以为是金山快盘修改了Finder里面的icon功能导致的，后来到stackoverflow看了一下，发现是消息队列的bug，看来还有潜在的别的问题，譬如拖拽等。解决办法是kill掉appleeventsd（不需要重启了？不清楚）：</p>
 
 <p>sudo killall -KILL appleeventsd</p>
+</li>
+</ol>
 
 <p>2. 系统自带的备忘录丢失。</p>
 
@@ -125,7 +125,7 @@
 
   <div id="disqus_thread"></div>
 <script type="text/javascript">
-    var disqus_developer = 1;
+    
     var disqus_shortname = 'lukescafe'; // required: replace example with your forum shortname
     
     /* * * DON'T EDIT BELOW THIS LINE * * */
@@ -212,6 +212,22 @@
 </script>
   
   
+
+
+  <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36648569-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
 </body>
 </html>
 

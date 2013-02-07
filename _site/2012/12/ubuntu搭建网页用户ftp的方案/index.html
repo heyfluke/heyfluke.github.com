@@ -51,9 +51,7 @@
 
 			<div class="bd">
 				<div class="entry-content">
-					<p>#</p>
-
-<p>最近需要新建一个网站，并且让用户上传网页文件。不想浪费时间在配置上面，就需要一个简单的方案。我采用了proftpd nginx php的方案。</p>
+					<p>最近需要新建一个网站，并且让用户上传网页文件。不想浪费时间在配置上面，就需要一个简单的方案。我采用了proftpd nginx php的方案。</p>
 
 <p>nginx php部分就不说了，默认的安装，设置好虚拟站点。</p>
 
@@ -61,13 +59,13 @@
 
 <p>默认安装proftpd: aptitude install proftpd</p>
 
-<p>然后修改配置，去掉下面行的注视#：</p>
+<p>然后修改配置，去掉下面行的注释#：</p>
 
-<blockquote>
-<p>DefaultRoot ~</p>
-</blockquote>
+<pre><code>DefaultRoot ~</code></pre>
 
-<p>链接： ln -s /home/myuser/public_html /var/www/mysite</p>
+<p>链接：</p>
+
+<pre><code>ln -s /home/myuser/public_html /var/www/mysite</code></pre>
 
 <p>其中public_html目录需要自己建立。</p>
 
@@ -125,7 +123,7 @@
 
   <div id="disqus_thread"></div>
 <script type="text/javascript">
-    var disqus_developer = 1;
+    
     var disqus_shortname = 'lukescafe'; // required: replace example with your forum shortname
     
     /* * * DON'T EDIT BELOW THIS LINE * * */
@@ -212,6 +210,22 @@
 </script>
   
   
+
+
+  <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36648569-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
 </body>
 </html>
 

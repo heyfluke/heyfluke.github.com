@@ -51,75 +51,83 @@
 
 			<div class="bd">
 				<div class="entry-content">
-					<p>#</p>
-
-<p>因为<a href='http://macports.org'>macports</a>全都不需要编译，这时间不值得浪费，所以就想找找看有没有二进制的包管理，找到了一个apt-get的移植版本–<a href='http://www.finkproject.org/'>fink</a>，只可惜还没开始支持<a href='http://www.apple.com/osx/'>mountain lion</a>。经微博朋友介绍，有一个更好的，叫Homebrew。</p>
+					<p>因为<a href='http://macports.org'>macports</a>全都不需要编译，这时间不值得浪费，所以就想找找看有没有二进制的包管理，找到了一个apt-get的移植版本–<a href='http://www.finkproject.org/'>fink</a>，只可惜还没开始支持<a href='http://www.apple.com/osx/'>mountain lion</a>。经微博朋友介绍，有一个更好的，叫Homebrew。</p>
 
 <p>尝试了一下，Homebrew是很有意思的一个软件，也比较现代。首先名字起的比较有意思，它的二进制包仓库（没仔细了解是不是仓库）叫bottle，刚好和homebrew(酿造)的名字对应上，默认情况下，如果有二进制可用就不进行编译。它安装的文件放在Cellar里面（在/usr/local/Cellar–Homebrew坚持把自己放在/usr/local下面，减少对系统的污染，也更加方便管理）。每个人自己可以编辑自己的formula–包规则文件，并且很好地和源（或者叫upstream–你可以pull一些私有的仓库）进行合并，这得益于homebrew是基于git的。</p>
 
 <p>安装homebrew很简单，<a href='http://mxcl.github.com/homebrew/'>官方主页</a>最新的介绍，用ruby执行一句命令即可：</p>
 
-<blockquote>
-<p>ruby -e &#8220;$(curl -fsSkL raw.github.com/mxcl/homebrew/go)&#8221;</p>
-</blockquote>
+<pre><code>ruby -e &quot;$(curl -fsSkL raw.github.com/mxcl/homebrew/go)&quot;</code></pre>
 
 <p>需要注意的是，homebrew和macports的默认位置冲突，所以需要先删除后者，参考：</p>
 
-<blockquote />
+<pre><code>http://guide.macports.org/#installing.macports.uninstalling</code></pre>
 
 <p>安装的过程也蛮简洁明了，一些交互的语句让人比较喜欢：</p>
 
-<blockquote>
-<p>LaotekiMacBook-Pro:elasticnodes laoyongchao$ ruby -e &#8220;$(curl -fsSkL raw.github.com/mxcl/homebrew/go)&#8221;</p>
+<pre><code>LaotekiMacBook-Pro:elasticnodes laoyongchao$ ruby -e &quot;$(curl -fsSkL raw.github.com/mxcl/homebrew/go)&quot;
 
-<p>/usr/local/bin/brew</p>
+==&gt; This script will install:
 
-<p>/usr/local/Library/…</p>
+/usr/local/bin/brew
 
-<p>/usr/local/share/man/man1/brew.1</p>
+/usr/local/Library/…
 
-<p>/usr/local/.</p>
+/usr/local/share/man/man1/brew.1
 
-<p>/usr/local/bin</p>
+==&gt; The following directories will be made group writable:
 
-<p>/usr/local/include</p>
+/usr/local/.
 
-<p>/usr/local/lib</p>
+/usr/local/bin
 
-<p>/usr/local/.</p>
+/usr/local/include
 
-<p>/usr/local/bin</p>
+/usr/local/lib
 
-<p>/usr/local/include</p>
+==&gt; The following directories will have their group set to admin:
 
-<p>/usr/local/lib</p>
+/usr/local/.
 
-<p> </p>
+/usr/local/bin
 
-<p>Press ENTER to continue or any other key to abort</p>
+/usr/local/include
 
-<p>Password:</p>
+/usr/local/lib
 
-<p>remote: Counting objects: 90226, done.</p>
+ 
 
-<p>remote: Compressing objects: 100% (41869/41869), done.</p>
+Press ENTER to continue or any other key to abort
 
-<p>remote: Total 90226 (delta 62927), reused 72135 (delta 47515)</p>
+==&gt; /usr/bin/sudo /bin/chmod g rwx /usr/local/. /usr/local/bin /usr/local/include /usr/local/lib
 
-<p>Receiving objects: 100% (90226/90226), 12.97 MiB | 149 KiB/s, done.</p>
+Password:
 
-<p>Resolving deltas: 100% (62927/62927), done.</p>
+==&gt; /usr/bin/sudo /usr/bin/chgrp admin /usr/local/. /usr/local/bin /usr/local/include /usr/local/lib
 
-<p>From https://github.com/mxcl/homebrew</p>
+==&gt; Downloading and Installing Homebrew…
 
-<p> * <span>new branch</span>      master     -&gt; origin/master</p>
+remote: Counting objects: 90226, done.
 
-<p>HEAD is now at 201d4e8 ht 2.0.21</p>
+remote: Compressing objects: 100% (41869/41869), done.
 
-<p>You should run <code>brew doctor&#39; \*before\* you install anything.</code></p>
+remote: Total 90226 (delta 62927), reused 72135 (delta 47515)
 
-<p>Now type: brew help</p>
-</blockquote>
+Receiving objects: 100% (90226/90226), 12.97 MiB | 149 KiB/s, done.
+
+Resolving deltas: 100% (62927/62927), done.
+
+From https://github.com/mxcl/homebrew
+
+ * [new branch]      master     -&gt; origin/master
+
+HEAD is now at 201d4e8 ht 2.0.21
+
+==&gt; Installation successful!
+
+You should run `brew doctor&#39; \*before\* you install anything.
+
+Now type: brew help</code></pre>
 					<div class="meta">
 						<p class="date-publish">
 							Published: 
@@ -173,7 +181,7 @@
 
   <div id="disqus_thread"></div>
 <script type="text/javascript">
-    var disqus_developer = 1;
+    
     var disqus_shortname = 'lukescafe'; // required: replace example with your forum shortname
     
     /* * * DON'T EDIT BELOW THIS LINE * * */
@@ -260,6 +268,22 @@
 </script>
   
   
+
+
+  <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36648569-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
 </body>
 </html>
 

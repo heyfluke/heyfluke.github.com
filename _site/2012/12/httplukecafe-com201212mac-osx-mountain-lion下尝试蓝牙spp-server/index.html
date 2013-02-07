@@ -51,9 +51,7 @@
 
 			<div class="bd">
 				<div class="entry-content">
-					<p>#</p>
-
-<p>之前写了《<a href='http://lukecafe.com/2012/12/mac-osx-mountain-lion下尝试蓝牙spp-server/'>Mac OSX Mountain Lion下尝试蓝牙SPP server</a>》，说明在 Mountain Lion下面由于蓝牙API的变化已经不容易编写串口程序，但是突然想起一个很简单的方法，原来一定是大脑短路了没想到。</p>
+					<p>之前写了《<a href='http://lukecafe.com/2012/12/mac-osx-mountain-lion下尝试蓝牙spp-server/'>Mac OSX Mountain Lion下尝试蓝牙SPP server</a>》，说明在 Mountain Lion下面由于蓝牙API的变化已经不容易编写串口程序，但是突然想起一个很简单的方法，原来一定是大脑短路了没想到。</p>
 
 <p>蓝牙SPP服务无非就是一种串口通信，而在*INX下面，会把串口写成/dev/tty*设备，并且是字符串设备，可以直接与这个设备进行读写的通信。</p>
 
@@ -61,45 +59,26 @@
 
 <p>示例：</p>
 
-<blockquote>
-<h1 id='usrbinenv_python'>!/usr/bin/env python</h1>
+<pre><code>#!/usr/bin/env python
+import serial
 
-<p> </p>
+def main():
 
-<p>import serial</p>
+	print &#39;===== Test Serial Communication =====&#39;
+	ser = serial.Serial(&#39;/dev/tty.Bluetooth-PDA-Sync&#39;, 9600, timeout=10)
+	recvbuf = &#39;&#39;
 
-<p> </p>
+	while True:
+		char = ser.read(1)
+		if not len(char): continue
+		recvbuf = char
+		# TODO: parse proto
+		ser.write(char)
 
-<p>def main():</p>
+	ser.close()
 
-<p>print &#8216;===== Test Serial Communication =====&#8217;</p>
-
-<p>ser = serial.Serial(&#8216;/dev/tty.Bluetooth-PDA-Sync&#8217;, 9600, timeout=10)</p>
-
-<p>recvbuf = &#8221;</p>
-
-<p>while True:</p>
-
-<p>char = ser.read(1)</p>
-
-<p>if not len(char): continue</p>
-
-<p>recvbuf = char</p>
-
-<h1 id='todo_parse_proto'>TODO: parse proto</h1>
-
-<p>ser.write(char)</p>
-
-<p> </p>
-
-<p>ser.close()</p>
-
-<p> </p>
-
-<p>if __name__ == &#8216;__main__&#8217;:</p>
-
-<p>main()</p>
-</blockquote>
+if __name__ == &#39;__main__&#39;:
+	main()</code></pre>
 					<div class="meta">
 						<p class="date-publish">
 							Published: 
@@ -153,7 +132,7 @@
 
   <div id="disqus_thread"></div>
 <script type="text/javascript">
-    var disqus_developer = 1;
+    
     var disqus_shortname = 'lukescafe'; // required: replace example with your forum shortname
     
     /* * * DON'T EDIT BELOW THIS LINE * * */
@@ -240,6 +219,22 @@
 </script>
   
   
+
+
+  <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36648569-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
 </body>
 </html>
 

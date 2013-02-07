@@ -51,9 +51,7 @@
 
 			<div class="bd">
 				<div class="entry-content">
-					<p>#</p>
-
-<p>本文基于cocos2d-x 2.0稳定版，主机操作系统为Mac OSX。对于linux和windows应该是类似的（win下的脚本为bat）。</p>
+					<p>本文基于cocos2d-x 2.0稳定版，主机操作系统为Mac OSX。对于linux和windows应该是类似的（win下的脚本为bat）。</p>
 
 <p> </p>
 
@@ -65,13 +63,11 @@
 
 <p> </p>
 
-<blockquote>
-<h1 id='set_environment_paramters'>set environment paramters</h1>
+<pre><code># set environment paramters
 
-<p>NDK_ROOT_LOCAL=&#8221;/home/laschweinski/android/android-ndk-r5&#8221;</p>
+NDK\_ROOT\_LOCAL=&quot;/home/laschweinski/android/android-ndk-r5&quot;
 
-<p>ANDROID_SDK_ROOT_LOCAL=&#8221;/home/laschweinski/android/android-sdk-linux_86&#8221;</p>
-</blockquote>
+ANDROID\_SDK\_ROOT\_LOCAL=&quot;/home/laschweinski/android/android-sdk-linux\_86&quot;</code></pre>
 
 <p> </p>
 
@@ -79,117 +75,112 @@
 
 <p> </p>
 
-<blockquote>
-<p>agspc98:cocos2d-2.0-x-2.0.4 laoyongchao$ ./create-android-project.sh </p>
+<pre><code>agspc98:cocos2d-2.0-x-2.0.4 laoyongchao$ ./create-android-project.sh 
 
-<p>use global definition of NDK_ROOT: /Users/laoyongchao/Applications/android-ndk-r6-crystax-2</p>
+use global definition of NDK_ROOT: /Users/laoyongchao/Applications/android-ndk-r6-crystax-2
 
-<p>use global definition of ANDROID_SDK_ROOT: /Users/laoyongchao/Applications/adt-bundle-mac/sdk</p>
+use global definition of ANDROID\_SDK\_ROOT: /Users/laoyongchao/Applications/adt-bundle-mac/sdk
 
-<p>Input package path. For example: org.cocos2dx.example</p>
+Input package path. For example: org.cocos2dx.example
 
-<p>fluke.play.testcocos2dx</p>
+fluke.play.testcocos2dx
 
-<p>Now cocos2d-x supports Android 2.2 or upper version</p>
+Now cocos2d-x supports Android 2.2 or upper version
 
-<p>Available Android targets:</p>
+Available Android targets:
 
-<p>———-</p>
+———-
 
-<p>id: 1 or &#8220;android-8&#8221;</p>
+id: 1 or &quot;android-8&quot;
 
-<p>     Name: Android 2.2</p>
+     Name: Android 2.2
 
-<p>     Type: Platform</p>
+     Type: Platform
 
-<p>     API level: 8</p>
+     API level: 8
 
-<p>     Revision: 3</p>
+     Revision: 3
 
-<p>     Skins: HVGA, QVGA, WQVGA400, WQVGA432, WVGA800 (default), WVGA854</p>
+     Skins: HVGA, QVGA, WQVGA400, WQVGA432, WVGA800 (default), WVGA854
 
-<p>     ABIs : armeabi</p>
+     ABIs : armeabi
 
-<p>———-</p>
+———-
 
-<p>id: 2 or &#8220;android-17&#8221;</p>
+id: 2 or &quot;android-17&quot;
 
-<p>     Name: Android 4.2</p>
+     Name: Android 4.2
 
-<p>     Type: Platform</p>
+     Type: Platform
 
-<p>     API level: 17</p>
+     API level: 17
 
-<p>     Revision: 1</p>
+     Revision: 1
 
-<p>     Skins: HVGA, QVGA, WQVGA400, WQVGA432, WSVGA, WVGA800 (default), WVGA854, WXGA720, WXGA800, WXGA800-7in</p>
+     Skins: HVGA, QVGA, WQVGA400, WQVGA432, WSVGA, WVGA800 (default), WVGA854, WXGA720, WXGA800, 	WXGA800-7in
 
-<p>     ABIs : armeabi-v7a</p>
+     ABIs : armeabi-v7a
 
-<p>input target id:</p>
+input target id:
 
-<p>1</p>
+1
 
-<p>input your project name:</p>
+input your project name:
 
-<p>TestCocos2dx</p>
+TestCocos2dx
 
-<p>Created project directory: /Users/laoyongchao/Documents/projects/os/cocos2d-2.0-x-2.0.4/TestCocos2dx/proj.android</p>
+Created project directory: /Users/laoyongchao/Documents/projects/os/cocos2d-2.0-x-2.0.4/TestCocos2dx/proj.android
 
-<p>Created directory /Users/laoyongchao/Documents/projects/os/cocos2d-2.0-x-2.0.4/TestCocos2dx/proj.android/src/fluke/play/testcocos2dx</p>
+Created directory /Users/laoyongchao/Documents/projects/os/cocos2d-2.0-x-2.0.4/TestCocos2dx/proj.android/src/fluke/play/testcocos2dx
 
-<p>Added file /Users/laoyongchao/Documents/projects/os/cocos2d-2.0-x-2.0.4/TestCocos2dx/proj.android/src/fluke/play/testcocos2dx/TestCocos2dx.java</p>
+Added file /Users/laoyongchao/Documents/projects/os/cocos2d-2.0-x-2.0.4/TestCocos2dx/proj.android/src/fluke/play/testcocos2dx/TestCocos2dx.java
 
-<p>Created directory /Users/laoyongchao/Documents/projects/os/cocos2d-2.0-x-2.0.4/TestCocos2dx/proj.android/res</p>
+Created directory /Users/laoyongchao/Documents/projects/os/cocos2d-2.0-x-2.0.4/TestCocos2dx/proj.	droid/res
 
-<p>Created directory /Users/laoyongchao/Documents/projects/os/cocos2d-2.0-x-2.0.4/TestCocos2dx/proj.android/bin</p>
+Created directory /Users/laoyongchao/Documents/projects/os/cocos2d-2.0-x-2.0.4/TestCocos2dx/proj.	droid/bin
 
-<p>Created directory /Users/laoyongchao/Documents/projects/os/cocos2d-2.0-x-2.0.4/TestCocos2dx/proj.android/libs</p>
+Created directory /Users/laoyongchao/Documents/projects/os/cocos2d-2.0-x-2.0.4/TestCocos2dx/proj.android/libs
 
-<p>Created directory /Users/laoyongchao/Documents/projects/os/cocos2d-2.0-x-2.0.4/TestCocos2dx/proj.android/res/values</p>
+Created directory /Users/laoyongchao/Documents/projects/os/cocos2d-2.0-x-2.0.4/TestCocos2dx/proj.android/res/values
 
-<p>Added file /Users/laoyongchao/Documents/projects/os/cocos2d-2.0-x-2.0.4/TestCocos2dx/proj.android/res/values/strings.xml</p>
+Added file /Users/laoyongchao/Documents/projects/os/cocos2d-2.0-x-2.0.4/TestCocos2dx/proj.android/res/values/strings.xml
 
-<p>Created directory /Users/laoyongchao/Documents/projects/os/cocos2d-2.0-x-2.0.4/TestCocos2dx/proj.android/res/layout</p>
+Created directory /Users/laoyongchao/Documents/projects/os/cocos2d-2.0-x-2.0.4/TestCocos2dx/proj.android/res/layout
 
-<p>Added file /Users/laoyongchao/Documents/projects/os/cocos2d-2.0-x-2.0.4/TestCocos2dx/proj.android/res/layout/main.xml</p>
+Added file /Users/laoyongchao/Documents/projects/os/cocos2d-2.0-x-2.0.4/TestCocos2dx/proj.android/res/layout/main.xml
 
-<p>Added file /Users/laoyongchao/Documents/projects/os/cocos2d-2.0-x-2.0.4/TestCocos2dx/proj.android/AndroidManifest.xml</p>
+Added file /Users/laoyongchao/Documents/projects/os/cocos2d-2.0-x-2.0.4/TestCocos2dx/proj.android/AndroidManifest.xml
 
-<p>Added file /Users/laoyongchao/Documents/projects/os/cocos2d-2.0-x-2.0.4/TestCocos2dx/proj.android/build.xml</p>
+Added file /Users/laoyongchao/Documents/projects/os/cocos2d-2.0-x-2.0.4/TestCocos2dx/proj.android/build.xml
 
-<p>Added file /Users/laoyongchao/Documents/projects/os/cocos2d-2.0-x-2.0.4/TestCocos2dx/proj.android/proguard-project.txt</p>
+Added file /Users/laoyongchao/Documents/projects/os/cocos2d-2.0-x-2.0.4/TestCocos2dx/proj.android/proguard-project.txt
 
-<p>Resolved location of library project to: /Users/laoyongchao/Documents/projects/os/cocos2d-2.0-x-2.0.4/cocos2dx/platform/android/java</p>
+Resolved location of library project to: /Users/laoyongchao/Documents/projects/os/cocos2d-2.0-x-2.0.4/cocos2dx/platform/android/java
 
-<p>Updated project.properties</p>
+Updated project.properties
 
-<p>Updated local.properties</p>
+Updated local.properties
 
-<p>Updated file /Users/laoyongchao/Documents/projects/os/cocos2d-2.0-x-2.0.4/TestCocos2dx/proj.android/proguard-project.txt</p>
+Updated file /Users/laoyongchao/Documents/projects/os/cocos2d-2.0-x-2.0.4/TestCocos2dx/proj.android/proguard-project.txt
 
-<p>agspc98:cocos2d-2.0-x-2.0.4 laoyongchao$ </p>
-</blockquote>
+agspc98:cocos2d-2.0-x-2.0.4 laoyongchao$ </code></pre>
 
 <p> </p>
 
 <p>然后是编译的过程，到TestCocos2dx目录去，发现工程文件都被整理在proj.android目录里面了（每个平台都统一这样的目录结构，比如ios的在proj.ios），到proj.android目录下运行./build_native.sh，结果发现很多错误，怀疑是对ndk的版本有要求，就换成ndk-r8c，结果成功：</p>
 
-<p> </p>
+<pre><code>….
 
-<blockquote>
-<p>….</p>
+Prebuilt       : curl.a  
+StaticLibrary  : libextension.a
 
-<p>Prebuilt       : curl.a<br />StaticLibrary  : libextension.a</p>
+SharedLibrary  : libgame.so
 
-<p>SharedLibrary  : libgame.so</p>
+Install        : libgame.so =&gt; libs/armeabi/libgame.so
 
-<p>Install        : libgame.so =&gt; libs/armeabi/libgame.so</p>
+make: Leaving directory `/Users/laoyongchao/Documents/projects/os/cocos2d-2.0-x-2.0.	TestCocos2dx/proj.android&#39;
 
-<p>make: Leaving directory <code>/Users/laoyongchao/Documents/projects/os/cocos2d-2.0-x-2.0.4/TestCocos2dx/proj.android&#39;</code></p>
-
-<p>agspc98:proj.android laoyongchao$ </p>
-</blockquote>
+agspc98:proj.android laoyongchao$ </code></pre>
 
 <p> </p>
 
@@ -197,13 +188,11 @@
 
 <p> </p>
 
-<blockquote>
-<p>agspc98:proj.android laoyongchao$ android update project –path .</p>
+<pre><code>agspc98:proj.android laoyongchao$ android update project –path .
 
-<p>Updated local.properties</p>
+Updated local.properties
 
-<p>Updated file ./proguard-project.txt</p>
-</blockquote>
+Updated file ./proguard-project.txt</code></pre>
 
 <p> </p>
 
@@ -215,9 +204,7 @@
 
 <p> </p>
 
-<blockquote>
-<p>ant debug -Dsdk.dir=/Users/laoyongchao/Applications/adt-bundle-mac/sdk</p>
-</blockquote>
+<pre><code>ant debug -Dsdk.dir=/Users/laoyongchao/Applications/adt-bundle-mac/sdk</code></pre>
 
 <p> </p>
 
@@ -225,25 +212,17 @@
 
 <p> </p>
 
-<blockquote>
-<p>agspc98:proj.android laoyongchao$ adb install bin/TestCocos2dx-debug.apk </p>
+<pre><code>agspc98:proj.android laoyongchao$ adb install bin/TestCocos2dx-debug.apk 
 
-<ul>
-<li>
-<p>daemon not running. starting it now on port 5037 *</p>
-</li>
+* daemon not running. starting it now on port 5037 *
 
-<li>
-<p>daemon started successfully *</p>
-</li>
-</ul>
+* daemon started successfully *
 
-<p>3458 KB/s (1624090 bytes in 0.458s)</p>
+3458 KB/s (1624090 bytes in 0.458s)
 
-<p>pkg: /data/local/tmp/TestCocos2dx-debug.apk</p>
+pkg: /data/local/tmp/TestCocos2dx-debug.apk
 
-<p>Success</p>
-</blockquote>
+Success</code></pre>
 
 <p> </p>
 
@@ -307,7 +286,7 @@
 
   <div id="disqus_thread"></div>
 <script type="text/javascript">
-    var disqus_developer = 1;
+    
     var disqus_shortname = 'lukescafe'; // required: replace example with your forum shortname
     
     /* * * DON'T EDIT BELOW THIS LINE * * */
@@ -394,6 +373,22 @@
 </script>
   
   
+
+
+  <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36648569-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
 </body>
 </html>
 

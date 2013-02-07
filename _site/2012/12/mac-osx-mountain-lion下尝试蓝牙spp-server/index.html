@@ -51,41 +51,35 @@
 
 			<div class="bd">
 				<div class="entry-content">
-					<p>#</p>
-
-<p>因为想搭建一个调试环境，在mountain lion上面通过蓝牙做一个SPP串口服务，用于和android手机的程序（譬如BluetoothChat）进行程序调试，所以就进行了一番尝试，结果是暂时失败的，记录一下。</p>
+					<p>因为想搭建一个调试环境，在mountain lion上面通过蓝牙做一个SPP串口服务，用于和android手机的程序（譬如BluetoothChat）进行程序调试，所以就进行了一番尝试，结果是暂时失败的，记录一下。</p>
 
 <p>一、Java的方案</p>
 
 <p>根据文章《<a href='http://www.jsr82.com/jsr-82-sample-spp-server-and-client/'>JSR-82 : Java Bluetooth</a>》提示，可以通过java来使用系统蓝牙服务，能够达到跨平台的效果（当然不同平台有不同的实现或者适配），并且找到了mac下面的一个开源实现–<a href='http://bluecove.org/'>BlueCove</a>。测试的代码在《JSR-82: Java Bluetooth》以及《<a href='http://homepages.ius.edu/RWISMAN/C490/html/JavaandBluetooth.htm'>Java and Bluetooth</a>》这篇文章都有，编译的时候注意包含jar路径即可。由于是32位的库，所以运行的时候需要加上-d32参数。编译和运行的命令行如下：</p>
 
-<blockquote>
-<p>javac -classpath bluecove-2.1.0-10dot6.jar SampleSPPServer.java</p>
+<pre><code>javac -classpath bluecove-2.1.0-10dot6.jar SampleSPPServer.java
 
-<p>java -d32 -classpath &#8220;.:bluecove-2.1.0-10dot6.jar&#8221; SampleSPPServer</p>
-</blockquote>
+java -d32 -classpath &quot;.:bluecove-2.1.0-10dot6.jar&quot; SampleSPPServer</code></pre>
 
 <p>可惜还是有错：</p>
 
-<blockquote>
-<p>dyld: lazy symbol binding failed: Symbol not found: <em>IOBluetoothLocalDeviceReadSupportedFeatures</em></p>
+<pre><code>dyld: lazy symbol binding failed: Symbol not found: _IOBluetoothLocalDeviceReadSupportedFeatures
 
-<p>  Referenced from: /private/var/folders/rv/scdm9d6x6vn_56s7ftzxj_wm0000gn/T/bluecove_laoyongchao_0/libbluecove.jnilib</p>
+  Referenced from: /private/var/folders/rv/scdm9d6x6vn\_56s7ftzxj\_wm0000gn/T/bluecove\_laoyongchao\_	libbluecove.jnilib
 
-<p>  Expected in: /System/Library/Frameworks/IOBluetooth.framework/Versions/A/IOBluetooth</p>
+  Expected in: /System/Library/Frameworks/IOBluetooth.framework/Versions/A/IOBluetooth
 
-<p> </p>
+ 
 
-<p>dyld: Symbol not found: <em>IOBluetoothLocalDeviceReadSupportedFeatures</em></p>
+dyld: Symbol not found: _IOBluetoothLocalDeviceReadSupportedFeatures
 
-<p>  Referenced from: /private/var/folders/rv/scdm9d6x6vn_56s7ftzxj_wm0000gn/T/bluecove_laoyongchao_0/libbluecove.jnilib</p>
+  Referenced from: /private/var/folders/rv/scdm9d6x6vn\_56s7ftzxj\_wm0000gn/T/bluecove\_laoyongchao\_	libbluecove.jnilib
 
-<p>  Expected in: /System/Library/Frameworks/IOBluetooth.framework/Versions/A/IOBluetooth</p>
+  Expected in: /System/Library/Frameworks/IOBluetooth.framework/Versions/A/IOBluetooth
 
-<p> </p>
+ 
 
-<p>Trace/BPT trap: 5</p>
-</blockquote>
+Trace/BPT trap: 5</code></pre>
 
 <p>看起来有符号已经变化了，下载了BlueCove来编译，发现原工程用的是OS X 10.6的SDK，而Mountain Lion已经是10.8了，有部分蓝牙相关的函数已经找不到符号，在苹果的页面已经找到了<a href='https://developer.apple.com/library/mac/#releasenotes/General/APIDiffsMacOSX10_8/IOBluetooth.html'>删除掉接口的说明</a>……</p>
 
@@ -155,7 +149,7 @@
 
   <div id="disqus_thread"></div>
 <script type="text/javascript">
-    var disqus_developer = 1;
+    
     var disqus_shortname = 'lukescafe'; // required: replace example with your forum shortname
     
     /* * * DON'T EDIT BELOW THIS LINE * * */
@@ -242,6 +236,22 @@
 </script>
   
   
+
+
+  <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36648569-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
 </body>
 </html>
 

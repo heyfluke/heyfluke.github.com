@@ -51,9 +51,7 @@
 
 			<div class="bd">
 				<div class="entry-content">
-					<p>#</p>
-
-<p>为了跨平台，首选了POSIX的pthread，但发现在ios平台下面有如下问题，以后解决了再发上来：</p>
+					<p>为了跨平台，首选了POSIX的pthread，但发现在ios平台下面有如下问题，以后解决了再发上来：</p>
 
 <ol>
 <li>
@@ -61,7 +59,7 @@
 </li>
 
 <li>
-<p>换用sem_open创建有名管道，本来应该返回sem_t<em>，但目测指针不是返回-1(表示SEM_FAIL)就是0×4，不是一个合法的指针。errno有时候为2有时候为3。强行使用的症状印象中是sem_wait恒成功。</em></p>
+<p>换用sem_open创建有名管道，本来应该返回sem_t*，但目测指针不是返回-1(表示SEM_FAIL)就是0×4，不是一个合法的指针。errno有时候为2有时候为3。强行使用的症状印象中是sem_wait恒成功。</p>
 </li>
 </ol>
 
@@ -129,7 +127,7 @@
 
   <div id="disqus_thread"></div>
 <script type="text/javascript">
-    var disqus_developer = 1;
+    
     var disqus_shortname = 'lukescafe'; // required: replace example with your forum shortname
     
     /* * * DON'T EDIT BELOW THIS LINE * * */
@@ -159,7 +157,7 @@
 							<li class="pipe"> | </li>
 							
 							
-							<li class="next"><a class="internal" rel="next"  href="/2013/02/wwdc%e8%a7%86%e9%a2%91%e4%bb%a3%e7%a0%81-%e5%be%88%e5%a5%bd%e7%9a%84%e8%b5%84%e6%96%99%e5%ba%93/" title="View WWDC视频/代码&#8211;很好的资料库">WWDC视频/代码&#8211;很好的资料库 &raquo;</a></li>
+							<li class="next"><a class="internal" rel="next"  href="/2013/02/wwdc%e8%a7%86%e9%a2%91%e4%bb%a3%e7%a0%81-%e5%be%88%e5%a5%bd%e7%9a%84%e8%b5%84%e6%96%99%e5%ba%93/" title="View WWDC视频/代码-很好的资料库">WWDC视频/代码-很好的资料库 &raquo;</a></li>
 							
 						</ul>
 					</nav>
@@ -216,6 +214,22 @@
 </script>
   
   
+
+
+  <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36648569-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
 </body>
 </html>
 

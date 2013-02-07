@@ -51,59 +51,49 @@
 
 			<div class="bd">
 				<div class="entry-content">
-					<p>#</p>
-
-<p>Google Analytics提供了javascript代码来进行跟踪统计，要插入gitlab中，需要编辑它的layout文件，这种文件用的是haml格式（ruby的一种html模板语言）。</p>
+					<p>Google Analytics提供了javascript代码来进行跟踪统计，要插入gitlab中，需要编辑它的layout文件，这种文件用的是haml格式（ruby的一种html模板语言）。</p>
 
 <p>要往haml里面添加javascript内容，需要用到<strong>:javascript</strong>过滤器。如果google提供的代码如下：</p>
 
-<blockquote>
-<p> </p>
+<pre><code>  var _gaq = _gaq || [];
 
-<p>  var _gaq = _gaq || <span />;</p>
+  _gaq.push([&#39;_setAccount&#39;, &#39;XXXX&#39;]);
 
-<p>  _gaq.push(<span>&#8217;_setAccount&#8217;, &#8216;XXXX&#8217;</span>);</p>
+  _gaq.push([&#39;_trackPageview&#39;]);
 
-<p>  _gaq.push(<span>&#8217;_trackPageview&#8217;</span>);</p>
+ 
 
-<p> </p>
+  (function() {
 
-<p>  (function() {</p>
+    var ga = document.createElement(&#39;script&#39;); ga.type = &#39;text/javascript&#39;; ga.async = true;
 
-<p>    var ga = document.createElement(&#8216;script&#8217;); ga.type = &#8216;text/javascript&#8217;; ga.async = true;</p>
+    ga.src = (&#39;https:&#39; == document.location.protocol ? &#39;https://ssl&#39; : &#39;http://www&#39;) &#39;.google-a  	tics.com/ga.js&#39;;
 
-<p>    ga.src = (&#8216;https:&#8217; == document.location.protocol ? &#8216;https://ssl&#8217; : &#8216;http://www&#8217;) &#8216;.google-analytics.com/ga.js&#8217;;</p>
+    var s = document.getElementsByTagName(&#39;script&#39;)[0]; s.parentNode.insertBefore(ga, s);
 
-<p>    var s = document.getElementsByTagName(&#8216;script&#8217;)<span>0</span>; s.parentNode.insertBefore(ga, s);</p>
-
-<p>  })();</p>
-
-<p> </p>
+  })();</code></pre>
 
 <p>则需要往gitlab/app/views/layout/_head.html.haml文件最后添加的代码是：</p>
 
-<blockquote>
-<p>  var _gaq = _gaq || <span />;</p>
+<pre><code>:javascript
 
-<p>  _gaq.push(<span>&#8217;_setAccount&#8217;, &#8216;XXXX&#8217;</span>);</p>
+  var _gaq = _gaq || [];
 
-<p>  _gaq.push(<span>&#8217;_trackPageview&#8217;</span>);</p>
+  _gaq.push([&#39;_setAccount&#39;, &#39;XXXX&#39;]);
 
-<p> </p>
+  _gaq.push([&#39;_trackPageview&#39;]);
 
-<p>  (function() {</p>
+ 
 
-<p>    var ga = document.createElement(&#8216;script&#8217;); ga.type = &#8216;text/javascript&#8217;; ga.async = true;</p>
+  (function() {
 
-<p>    ga.src = (&#8216;https:&#8217; == document.location.protocol ? &#8216;https://ssl&#8217; : &#8216;http://www&#8217;) &#8216;.google-analytics.com/ga.js&#8217;;</p>
+    var ga = document.createElement(&#39;script&#39;); ga.type = &#39;text/javascript&#39;; ga.async = true;
 
-<p>    var s = document.getElementsByTagName(&#8216;script&#8217;)<span>0</span>; s.parentNode.insertBefore(ga, s);</p>
+    ga.src = (&#39;https:&#39; == document.location.protocol ? &#39;https://ssl&#39; : &#39;http://www&#39;) &#39;.google-		cs.com/ga.js&#39;;
 
-<p>  })();</p>
-</blockquote>
+    var s = document.getElementsByTagName(&#39;script&#39;)[0]; s.parentNode.insertBefore(ga, s);
 
-<p> </p>
-</blockquote>
+  })();</code></pre>
 					<div class="meta">
 						<p class="date-publish">
 							Published: 
@@ -165,7 +155,7 @@
 
   <div id="disqus_thread"></div>
 <script type="text/javascript">
-    var disqus_developer = 1;
+    
     var disqus_shortname = 'lukescafe'; // required: replace example with your forum shortname
     
     /* * * DON'T EDIT BELOW THIS LINE * * */
@@ -252,6 +242,22 @@
 </script>
   
   
+
+
+  <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36648569-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
 </body>
 </html>
 

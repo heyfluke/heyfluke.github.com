@@ -51,25 +51,15 @@
 
 			<div class="bd">
 				<div class="entry-content">
-					<p>#</p>
-
-<p>最近开始发现<a href='http://openvpn.net/'>openvpn</a>不稳定，主要有几个现象：</p>
+					<p>最近开始发现<a href='http://openvpn.net/'>openvpn</a>不稳定，主要有几个现象：</p>
 
 <ol>
 <li>udp在mac下无法连接上，用的是<a href='http://www.sparklabs.com/viscosity'>viscocity</a>，所以mac只好用tcp。</li>
+
+<li>即使是tcp，用几天也要换一次端口。</li>
+
+<li>今天发现winxp下面（openvpn client）无法连接udp了，只能tcp。 4. 朋友在深圳无法连接。</li>
 </ol>
-
-<ol>
-<li>
-<p>即使是tcp，用几天也要换一次端口。</p>
-</li>
-
-<li>
-<p>今天发现winxp下面（openvpn client）无法连接udp了，只能tcp。</p>
-</li>
-</ol>
-
-<p>4. 朋友在深圳无法连接。</p>
 
 <p>既然不同的机子，不同的软件，不同的协议实现的支持参差不齐，而且是随着时间动态变化，所以看来应该是伟大防火墙GFW有自适应的功能，感觉比过去强大多了。</p>
 
@@ -135,7 +125,7 @@
 
   <div id="disqus_thread"></div>
 <script type="text/javascript">
-    var disqus_developer = 1;
+    
     var disqus_shortname = 'lukescafe'; // required: replace example with your forum shortname
     
     /* * * DON'T EDIT BELOW THIS LINE * * */
@@ -222,6 +212,22 @@
 </script>
   
   
+
+
+  <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36648569-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
 </body>
 </html>
 

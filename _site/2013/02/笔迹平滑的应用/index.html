@@ -51,9 +51,7 @@
 
 			<div class="bd">
 				<div class="entry-content">
-					<p>#</p>
-
-<p>如果在做一个手写笔迹的应用的话，那一定会遇到曲线平滑的问题，因为在手写设备上边写文字往往会出现笔迹抖动的现象，即采集到的点会出现波动，看起来会比较难看（不像真迹），一个常见的处理方式是把曲线平滑化，即在采集点之间沿着某种平滑曲线进行差值画点，而不是直接把点用直线相连。</p>
+					<p>如果在做一个手写笔迹的应用的话，那一定会遇到曲线平滑的问题，因为在手写设备上边写文字往往会出现笔迹抖动的现象，即采集到的点会出现波动，看起来会比较难看（不像真迹），一个常见的处理方式是把曲线平滑化，即在采集点之间沿着某种平滑曲线进行差值画点，而不是直接把点用直线相连。</p>
 
 <p><a href='http://en.wikipedia.org/wiki/Bézier_curve'>贝塞尔曲线（Bezier Curve）</a>是常见的一种曲线，它由若干个控制点来控制曲线摆动的方式，具体可以参考wikipedia上面的说明。简单说明一下，n阶贝塞尔曲线就是由n 1个点组成，其中中间的n-1个点作为控制点存在，曲线路径会逼近控制点（如果控制点和前后点在同一直线上的话，在这种特例下曲线退化成直线），视觉上看好像某种力场弯曲了曲线的路径。</p>
 
@@ -145,7 +143,7 @@
 
   <div id="disqus_thread"></div>
 <script type="text/javascript">
-    var disqus_developer = 1;
+    
     var disqus_shortname = 'lukescafe'; // required: replace example with your forum shortname
     
     /* * * DON'T EDIT BELOW THIS LINE * * */
@@ -232,6 +230,22 @@
 </script>
   
   
+
+
+  <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36648569-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
 </body>
 </html>
 

@@ -6,7 +6,6 @@ permalink: /2012/12/mac-osx-mountain-lion%e4%b8%8b%e5%b0%9d%e8%af%95%e8%93%9d%e7
 categories:
   - Mac OS X
 ---
-# 
 
 因为想搭建一个调试环境，在mountain lion上面通过蓝牙做一个SPP串口服务，用于和android手机的程序（譬如BluetoothChat）进行程序调试，所以就进行了一番尝试，结果是暂时失败的，记录一下。
 
@@ -18,29 +17,30 @@ categories:
  [2]: http://bluecove.org/
  [3]: http://homepages.ius.edu/RWISMAN/C490/html/JavaandBluetooth.htm
 
-> javac -classpath bluecove-2.1.0-10dot6.jar SampleSPPServer.java
-> 
-> java -d32 -classpath ".:bluecove-2.1.0-10dot6.jar" SampleSPPServer
+	javac -classpath bluecove-2.1.0-10dot6.jar SampleSPPServer.java
+	
+	java -d32 -classpath ".:bluecove-2.1.0-10dot6.jar" SampleSPPServer
 
 可惜还是有错：
 
-> dyld: lazy symbol binding failed: Symbol not found: _IOBluetoothLocalDeviceReadSupportedFeatures
-> 
->   Referenced from: /private/var/folders/rv/scdm9d6x6vn\_56s7ftzxj\_wm0000gn/T/bluecove\_laoyongchao\_0/libbluecove.jnilib
-> 
->   Expected in: /System/Library/Frameworks/IOBluetooth.framework/Versions/A/IOBluetooth
-> 
->  
-> 
-> dyld: Symbol not found: _IOBluetoothLocalDeviceReadSupportedFeatures
-> 
->   Referenced from: /private/var/folders/rv/scdm9d6x6vn\_56s7ftzxj\_wm0000gn/T/bluecove\_laoyongchao\_0/libbluecove.jnilib
-> 
->   Expected in: /System/Library/Frameworks/IOBluetooth.framework/Versions/A/IOBluetooth
-> 
->  
-> 
-> Trace/BPT trap: 5
+	dyld: lazy symbol binding failed: Symbol not found: _IOBluetoothLocalDeviceReadSupportedFeatures
+	
+	  Referenced from: /private/var/folders/rv/scdm9d6x6vn\_56s7ftzxj\_wm0000gn/T/bluecove\_laoyongchao\_	libbluecove.jnilib
+	
+	  Expected in: /System/Library/Frameworks/IOBluetooth.framework/Versions/A/IOBluetooth
+	
+	 
+	
+	dyld: Symbol not found: _IOBluetoothLocalDeviceReadSupportedFeatures
+	
+	  Referenced from: /private/var/folders/rv/scdm9d6x6vn\_56s7ftzxj\_wm0000gn/T/bluecove\_laoyongchao\_	libbluecove.jnilib
+	
+	  Expected in: /System/Library/Frameworks/IOBluetooth.framework/Versions/A/IOBluetooth
+	
+	 
+	
+	Trace/BPT trap: 5
+
 
 看起来有符号已经变化了，下载了BlueCove来编译，发现原工程用的是OS X 10.6的SDK，而Mountain Lion已经是10.8了，有部分蓝牙相关的函数已经找不到符号，在苹果的页面已经找到了[删除掉接口的说明][4]……
 

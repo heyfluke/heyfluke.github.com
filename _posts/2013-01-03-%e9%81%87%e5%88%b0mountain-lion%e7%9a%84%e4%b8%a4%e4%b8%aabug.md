@@ -11,13 +11,12 @@ tags:
   - OS X
   - Show in Finder
 ---
-# 
 
 才开始转用mac不久，就遇上了两个Mountain Lion的bug，其中第一个应该是系统级别的bug，希望近期能够修复。
 
 1. 应用程序中的“show in Finder”或者“在Finder中显示”功能失效。这个很诡异，我一开始还以为是金山快盘修改了Finder里面的icon功能导致的，后来到stackoverflow看了一下，发现是消息队列的bug，看来还有潜在的别的问题，譬如拖拽等。解决办法是kill掉appleeventsd（不需要重启了？不清楚）：
 
-sudo killall -KILL appleeventsd
+	sudo killall -KILL appleeventsd
 
 2. 系统自带的备忘录丢失。
 
