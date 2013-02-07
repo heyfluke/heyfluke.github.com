@@ -7,7 +7,7 @@ tags: [jekyll, ruby, mac, markdown]
 ---
 {% include JB/setup %}
 
-# 发现问题
+## 发现问题
 
 在进行jekyll的时候，发现有一些错误提示信息很诡异，看起来似乎残留了homebrew的信息。
 
@@ -36,7 +36,7 @@ tags: [jekyll, ruby, mac, markdown]
 	!/Library/Ruby/Gems/1.8/gems/maruku-0.6.1/lib/maruku/input/parse_span_better.rb:46:in `parse_span_	better'
 	\___________________________________________________________________________
 
-# 解决问题 
+## 解决问题 
 
 由于不懂ruby，暂时也没时间去学习，所以暂时怀疑是ruby安装的一些包是经过homebrew的，所以想办法先卸载所有的ruby包，这里把所有的gem都卸载掉。
 
