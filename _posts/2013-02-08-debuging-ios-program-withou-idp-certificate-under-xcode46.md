@@ -2,8 +2,8 @@
 layout: post
 title: "在Xcode4.6下无证书调试iOS程序（iOS6.1）"
 description: ""
-category: 
-tags: []
+category: iOS开发
+tags: [iOS, jailbreak, non-IDP, Xcode, 免证书调试]
 ---
 {% include JB/setup %}
 
