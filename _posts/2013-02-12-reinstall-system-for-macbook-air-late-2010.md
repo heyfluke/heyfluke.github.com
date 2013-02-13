@@ -2,7 +2,7 @@
 layout: post
 title: "用U盘为2010年版MacbookAir重装系统"
 description: ""
-category: - Mac OS X
+category: "Mac OS X"
 tags: [Mac OS X, Lion, reinstall, Macbook Air]
 ---
 {% include JB/setup %}
@@ -13,4 +13,4 @@ tags: [Mac OS X, Lion, reinstall, Macbook Air]
 
 安装的时候我故意在开机的时候按着option，希望进入启动菜单，但是直接就识别到U盘进行安装了。
 
-[1]: http://liondiskmaker.com/
+[1]: http://liondiskmaker.com
