@@ -2,7 +2,7 @@
 layout: post
 title: "通过U盘在Macbook Air 2010上安装windows 7"
 description: ""
-category: 
+category: "Mac OS X"
 tags: [windows 7 on Macbook Air, window install, Macbook Air]
 date: 2013-02-12 19:30:00
 ---

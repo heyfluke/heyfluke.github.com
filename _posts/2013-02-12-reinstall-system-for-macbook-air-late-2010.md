@@ -2,7 +2,7 @@
 layout: post
 title: "用U盘为2010年版MacbookAir重装系统"
 description: ""
-category: Mac OS X
+category: - Mac OS X
 tags: [Mac OS X, Lion, reinstall, Macbook Air]
 ---
 {% include JB/setup %}
