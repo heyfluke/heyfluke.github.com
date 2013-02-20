@@ -64,6 +64,11 @@ Variant 3
 
 从根本上来说，特殊功能寄存器（SFR）地址就被放在0x80-0xff这个范围内，每个寄存器大小都是8位。取位置的时候也可以用绝对值或者别的运算表达式来获取，例如：
 
-	sbit myport = P1 + 1;
+	sbit P1 = 0x90;
+	sbit myport1 = P1 + 1;
+	sbit myport2 = P2 ^ 2;
+	sbit myport3 = 0x93;
+
+异或和加相等是因为最后3个二进制位是0，刚好容纳0-7。
 
 [1]: http://www.keil.com/support/man/docs/c51/c51_le_sbit.htm
