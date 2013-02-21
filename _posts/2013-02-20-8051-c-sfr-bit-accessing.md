@@ -71,4 +71,9 @@ Variant 3
 
 异或和加相等是因为最后3个二进制位是0，刚好容纳0-7。
 
+而对寄存器内容进行存取的话，对定义好的变量进行赋值就好了，譬如在P1口的位置1插了一个LED，要通电就可以：
+
+	myport1 = 1;
+
+
 [1]: http://www.keil.com/support/man/docs/c51/c51_le_sbit.htm
