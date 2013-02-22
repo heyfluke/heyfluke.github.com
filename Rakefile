@@ -47,12 +47,14 @@ task :post do
   title = ENV["title"] || "new-post"
   slug = title.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
   begin
-    date = (ENV['date'] ? Time.parse(ENV['date']) : Time.now).strftime('%Y-%m-%d')
+    # puts ENV['date']
+    date = ENV['date'] ? Time.parse(ENV['date']) : Time.now
+    datestr = date.strftime('%Y-%m-%d')
   rescue Exception => e
-    puts "Error - date format must be YYYY-MM-DD, please check you typed it correctly!"
+    puts "Error - date format must be YYYY-MM-DD, please check you typed it correctly! #{e}"
     exit -1
   end
-  filename = File.join(CONFIG['posts'], "#{date}-#{slug}.#{CONFIG['post_ext']}")
+  filename = File.join(CONFIG['posts'], "#{datestr}-#{slug}.#{CONFIG['post_ext']}")
   if File.exist?(filename)
     abort("rake aborted!") if ask("#{filename} already exists. Do you want to overwrite?", ['y', 'n']) == 'n'
   end
@@ -65,6 +67,7 @@ task :post do
     post.puts 'description: ""'
     post.puts "category: "
     post.puts "tags: []"
+    post.puts "date: #{date}"
     post.puts "---"
     post.puts "{% include JB/setup %}"
   end
