@@ -1,0 +1,23 @@
+{% if page.title %}
+<div class="page-header">
+  <h1>{{ page.title }} {% if page.tagline %} <small>{{ page.tagline }}</small>{% endif %}</h1>
+</div>
+{% endif %}
+
+<div class="content">
+  {% for post in site.tags[page.tag] %}
+  <div class="row-fluid posts">
+    <div class="span12">
+      <h2><a href="{{  BASE_PATH }}{{ post.url }}">{{ post.title }}</a></h2>
+      <p><small>{{ post.date | date:"%b %d, %Y" }} | <a href="{{ BASE_PATH }}{{ post.url }}#disqus_thread"><span class="dsq-postid" rel="{% if post.wordpress_id %}{{ post.wordpress_id }} {{post.wordpress_url }}{% else %}{{ site.production_url }}{{ post.url }}{% endif %}">No Comments</span></a></small></p>
+      <p>{% if post.excerpt %}{{ post.excerpt }}{% else %}{{ post.content | strip_html | truncatewords:40 }}{% endif %}</p>
+      <ul class="tag_box">
+      {% assign tags_list = post.tags %}
+      {% include JB/tags_list %}
+      </ul>
+      <p><a class="btn btn-js" href="{{ BASE_PATH }}{{ post.url }}">Read More</a></p>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% include disqus_comment_loader %}
