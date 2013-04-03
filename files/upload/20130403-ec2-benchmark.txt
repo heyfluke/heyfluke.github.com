@@ -1,0 +1,245 @@
+####################### Benchmark of virtual machine ubuntu@macbook  ###################
+   #    #  #    #  #  #    #          #####   ######  #    #   ####   #    #
+   #    #  ##   #  #   #  #           #    #  #       ##   #  #    #  #    #
+   #    #  # #  #  #    ##            #####   #####   # #  #  #       ######
+   #    #  #  # #  #    ##            #    #  #       #  # #  #       #    #
+   #    #  #   ##  #   #  #           #    #  #       #   ##  #    #  #    #
+    ####   #    #  #  #    #          #####   ######  #    #   ####   #    #
+
+   Version 5.1.2                      Based on the Byte Magazine Unix Benchmark
+
+   Multi-CPU version                  Version 5 revisions by Ian Smith,
+                                      Sunnyvale, CA, USA
+   December 22, 2007                  johantheghost at yahoo period com
+
+
+1 x Dhrystone 2 using register variables  1 2 3 4 5 6 7 8 9 10
+
+1 x Double-Precision Whetstone  1 2 3 4 5 6 7 8 9 10
+
+1 x Execl Throughput  1 2 3
+
+1 x File Copy 1024 bufsize 2000 maxblocks  1 2 3
+
+1 x File Copy 256 bufsize 500 maxblocks  1 2 3
+
+1 x File Copy 4096 bufsize 8000 maxblocks  1 2 3
+
+1 x Pipe Throughput  1 2 3 4 5 6 7 8 9 10
+
+1 x Pipe-based Context Switching  1 2 3 4 5 6 7 8 9 10
+
+1 x Process Creation  1 2 3
+
+1 x System Call Overhead  1 2 3 4 5 6 7 8 9 10
+
+1 x Shell Scripts (1 concurrent)  1 2 3
+
+1 x Shell Scripts (8 concurrent)  1 2 3
+
+========================================================================
+   BYTE UNIX Benchmarks (Version 5.1.2)
+
+   System: u: GNU/Linux
+   OS: GNU/Linux -- 3.5.0-17-generic -- #28-Ubuntu SMP Tue Oct 9 19:31:23 UTC 2012
+   Machine: x86_64 (x86_64)
+   Language: en_US.utf8 (charmap="UTF-8", collate="UTF-8")
+   CPU 0: Intel(R) Core(TM) i7-3615QM CPU @ 2.30GHz (4589.4 bogomips)
+          x86-64, MMX, Physical Address Ext, SYSENTER/SYSEXIT, SYSCALL/SYSRET
+   04:21:36 up  4:22,  2 users,  load average: 0.08, 0.19, 0.31; runlevel 2
+
+------------------------------------------------------------------------
+Benchmark Run: Wed Apr 03 2013 04:21:36 - 04:50:05
+1 CPU in system; running 1 parallel copy of tests
+
+Dhrystone 2 using register variables       29831718.2 lps   (10.0 s, 7 samples)
+Double-Precision Whetstone                     4222.6 MWIPS (9.9 s, 7 samples)
+Execl Throughput                               3624.7 lps   (30.0 s, 2 samples)
+File Copy 1024 bufsize 2000 maxblocks        893896.9 KBps  (30.0 s, 2 samples)
+File Copy 256 bufsize 500 maxblocks          274396.3 KBps  (30.0 s, 2 samples)
+File Copy 4096 bufsize 8000 maxblocks       1948455.1 KBps  (30.0 s, 2 samples)
+Pipe Throughput                             2041469.7 lps   (10.0 s, 7 samples)
+Pipe-based Context Switching                 321354.0 lps   (10.0 s, 7 samples)
+Process Creation                               9585.4 lps   (30.0 s, 2 samples)
+Shell Scripts (1 concurrent)                   6422.6 lpm   (60.0 s, 2 samples)
+Shell Scripts (8 concurrent)                    836.8 lpm   (60.0 s, 2 samples)
+System Call Overhead                        3835487.2 lps   (10.0 s, 7 samples)
+
+System Benchmarks Index Values               BASELINE       RESULT    INDEX
+Dhrystone 2 using register variables         116700.0   29831718.2   2556.3
+Double-Precision Whetstone                       55.0       4222.6    767.7
+Execl Throughput                                 43.0       3624.7    843.0
+File Copy 1024 bufsize 2000 maxblocks          3960.0     893896.9   2257.3
+File Copy 256 bufsize 500 maxblocks            1655.0     274396.3   1658.0
+File Copy 4096 bufsize 8000 maxblocks          5800.0    1948455.1   3359.4
+Pipe Throughput                               12440.0    2041469.7   1641.1
+Pipe-based Context Switching                   4000.0     321354.0    803.4
+Process Creation                                126.0       9585.4    760.7
+Shell Scripts (1 concurrent)                     42.4       6422.6   1514.8
+Shell Scripts (8 concurrent)                      6.0        836.8   1394.6
+System Call Overhead                          15000.0    3835487.2   2557.0
+                                                                   ========
+System Benchmarks Index Score                                        1482.5
+
+
+
+
+======= Script description and score comparison: ======= 
+
+http://www.ctohome.com/FuWuQi/c5/172.html
+
+
+fluke@u:~$ cat /proc/cpuinfo 
+processor       : 0
+vendor_id       : GenuineIntel
+cpu family      : 6
+model           : 58
+model name      : Intel(R) Core(TM) i7-3615QM CPU @ 2.30GHz
+stepping        : 9
+microcode       : 0x15
+cpu MHz         : 2294.722
+cache size      : 6144 KB
+fpu             : yes
+fpu_exception   : yes
+cpuid level     : 13
+wp              : yes
+flags           : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts mmx fxsr sse sse2 ss syscall nx rdtscp lm constant_tsc up arch_perfmon pebs bts nopl xtopology tsc_reliable nonstop_tsc aperfmperf pni pclmulqdq ssse3 cx16 pcid sse4_1 sse4_2 x2apic popcnt aes xsave avx f16c rdrand hypervisor lahf_lm ida arat epb xsaveopt pln pts dtherm fsgsbase smep
+bogomips        : 4589.44
+clflush size    : 64
+cache_alignment : 64
+address sizes   : 40 bits physical, 48 bits virtual
+power management:
+
+fluke@u:~$ free 
+             total       used       free     shared    buffers     cached
+Mem:       1012128     639228     372900          0      54236     395480
+-/+ buffers/cache:     189512     822616
+Swap:      1044476          0    1044476
+
+################### end virtual machine ubuntu@macbook #############################
+
+
+################### benchmark of amazon ec2 micro instance #########################
+   #    #  #    #  #  #    #          #####   ######  #    #   ####   #    #
+   #    #  ##   #  #   #  #           #    #  #       ##   #  #    #  #    #
+   #    #  # #  #  #    ##            #####   #####   # #  #  #       ######
+   #    #  #  # #  #    ##            #    #  #       #  # #  #       #    #
+   #    #  #   ##  #   #  #           #    #  #       #   ##  #    #  #    #
+    ####   #    #  #  #    #          #####   ######  #    #   ####   #    #
+
+   Version 5.1.2                      Based on the Byte Magazine Unix Benchmark
+
+   Multi-CPU version                  Version 5 revisions by Ian Smith,
+                                      Sunnyvale, CA, USA
+   December 22, 2007                  johantheghost at yahoo period com
+
+
+1 x Dhrystone 2 using register variables  1 2 3 4 5 6 7 8 9 10
+
+1 x Double-Precision Whetstone  1 2 3 4 5 6 7 8 9 10
+
+1 x Execl Throughput  1 2 3
+
+1 x File Copy 1024 bufsize 2000 maxblocks  1 2 3
+
+1 x File Copy 256 bufsize 500 maxblocks  1 2 3
+
+1 x File Copy 4096 bufsize 8000 maxblocks  1 2 3
+
+1 x Pipe Throughput  1 2 3 4 5 6 7 8 9 10
+
+1 x Pipe-based Context Switching  1 2 3 4 5 6 7 8 9 10
+
+1 x Process Creation  1 2 3
+
+1 x System Call Overhead  1 2 3 4 5 6 7 8 9 10
+
+1 x Shell Scripts (1 concurrent)  1 2 3
+
+1 x Shell Scripts (8 concurrent)  1 2 3
+
+========================================================================
+   BYTE UNIX Benchmarks (Version 5.1.2)
+
+   System: westec.syncapi.com: GNU/Linux
+   OS: GNU/Linux -- 3.2.0-36-virtual -- #57-Ubuntu SMP Tue Jan 8 22:04:49 UTC 2013
+   Machine: x86_64 (x86_64)
+   Language: en_US.utf8 (charmap="UTF-8", collate="UTF-8")
+   CPU 0: Intel(R) Xeon(R) CPU E5-2650 0 @ 2.00GHz (3600.0 bogomips)
+          Hyper-Threading, x86-64, MMX, Physical Address Ext, SYSENTER/SYSEXIT, SYSCALL/SYSRET
+   03:06:32 up  7:55,  1 user,  load average: 0.32, 0.16, 0.10; runlevel 2
+
+------------------------------------------------------------------------
+Benchmark Run: Wed Apr 03 2013 03:06:32 - 03:34:33
+1 CPU in system; running 1 parallel copy of tests
+
+Dhrystone 2 using register variables       20564238.6 lps   (10.0 s, 7 samples)
+Double-Precision Whetstone                     2262.1 MWIPS (10.0 s, 7 samples)
+Execl Throughput                                919.8 lps   (30.0 s, 2 samples)
+File Copy 1024 bufsize 2000 maxblocks        226616.0 KBps  (30.0 s, 2 samples)
+File Copy 256 bufsize 500 maxblocks           59075.3 KBps  (30.0 s, 2 samples)
+File Copy 4096 bufsize 8000 maxblocks        710886.0 KBps  (30.0 s, 2 samples)
+Pipe Throughput                              303014.4 lps   (10.0 s, 7 samples)
+Pipe-based Context Switching                  45922.3 lps   (10.0 s, 7 samples)
+Process Creation                               1002.9 lps   (30.1 s, 2 samples)
+Shell Scripts (1 concurrent)                    794.3 lpm   (60.2 s, 2 samples)
+Shell Scripts (8 concurrent)                     91.6 lpm   (60.4 s, 2 samples)
+System Call Overhead                         176815.2 lps   (10.0 s, 7 samples)
+
+System Benchmarks Index Values               BASELINE       RESULT    INDEX
+Dhrystone 2 using register variables         116700.0   20564238.6   1762.1
+Double-Precision Whetstone                       55.0       2262.1    411.3
+Execl Throughput                                 43.0        919.8    213.9
+File Copy 1024 bufsize 2000 maxblocks          3960.0     226616.0    572.3
+File Copy 256 bufsize 500 maxblocks            1655.0      59075.3    357.0
+File Copy 4096 bufsize 8000 maxblocks          5800.0     710886.0   1225.7
+Pipe Throughput                               12440.0     303014.4    243.6
+Pipe-based Context Switching                   4000.0      45922.3    114.8
+Process Creation                                126.0       1002.9     79.6
+Shell Scripts (1 concurrent)                     42.4        794.3    187.3
+Shell Scripts (8 concurrent)                      6.0         91.6    152.7
+System Call Overhead                          15000.0     176815.2    117.9
+                                                                   ========
+System Benchmarks Index Score                                         285.3
+
+
+
+
+======= Script description and score comparison: ======= 
+
+http://www.ctohome.com/FuWuQi/c5/172.html
+
+
+ubuntu@westec:~$ cat /proc/cpuinfo 
+processor : 0
+vendor_id : GenuineIntel
+cpu family  : 6
+model   : 45
+model name  : Intel(R) Xeon(R) CPU E5-2650 0 @ 2.00GHz
+stepping  : 7
+microcode : 0x70a
+cpu MHz   : 1799.999
+cache size  : 20480 KB
+physical id : 1
+siblings  : 1
+core id   : 5
+cpu cores : 1
+apicid    : 42
+initial apicid  : 42
+fpu   : yes
+fpu_exception : yes
+cpuid level : 13
+wp    : yes
+flags   : fpu de tsc msr pae cx8 sep cmov pat clflush mmx fxsr sse sse2 ss ht syscall nx lm constant_tsc up rep_good nopl nonstop_tsc pni pclmulqdq ssse3 cx16 pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes avx hypervisor lahf_lm
+bogomips  : 3599.99
+clflush size  : 64
+cache_alignment : 64
+address sizes : 46 bits physical, 48 bits virtual
+power management:
+
+ubuntu@westec:~$ free 
+             total       used       free     shared    buffers     cached
+Mem:        604360     500868     103492          0      19120     413200
+-/+ buffers/cache:      68548     535812
+Swap:            0          0          0
+################### end amazon ec2 micro instance ##################################

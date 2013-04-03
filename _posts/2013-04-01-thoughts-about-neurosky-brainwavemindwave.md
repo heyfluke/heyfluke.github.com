@@ -2,7 +2,7 @@
 layout: post
 title: "关于NeuroSky BrainWave(mindwave)(脑立方)的一些想法"
 description: ""
-category: 
+category: 其他技术
 tags: [脑立方,神念科技,意念控制,脑电波,NeuroSky BrainWave,NeuroSky,BrainWave,MindWave,Brain Signal,brain-computer interface,BrainWave Control, Thinking Control]
 date: 2013-04-01 11:34:07 +0800
 ---
