@@ -80,6 +80,10 @@ helloworld	0001_initial
 
 * 然后就和场景1一样了。
 
+* 注，如果需要迁移到指定版本，可以带上版本做参数即可，形如：
+
+```./manage.py migrate helloworld 0001 [--fake]```
+
 
 
 
