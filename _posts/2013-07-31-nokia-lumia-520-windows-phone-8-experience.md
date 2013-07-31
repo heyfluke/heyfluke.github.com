@@ -24,6 +24,10 @@ lumia 520应该主要是集成了lumia 920的设计，很符合metro的简单明
 
 屏幕为4寸，外形中规中矩。虽然分辨率不高，但显示效果不错。
 
+[![Lumia 520 正面](/images/upload/20130731-1-lumia520-front-small.png) ](/images/upload/20130731-1-lumia520-front.png)
+)
+[![Lumia 520 背面](/images/upload/20130731-2-lumia520-back-small.png)](/images/upload/20130731-2-lumia520-back.png)
+
 ### 开机和设置
 
 开机的设置不多，甚至wifi也不提示，即不会像google系列的android那样，几乎要登陆才能使用（现在有不少的设备都是可以跳过的），而是马上就可以使用了。这个过程中，我只记得提示了会使用插入的micro sd卡作为相片的存储。
@@ -123,7 +127,6 @@ wp8是多任务的系统，不过没有看到任务管理的程序，对于很�
 ## 总结
 
 Lumia 520是体验windows phone 8的一个绝佳的设备，不贵，够用，麻雀虽小五胀俱全。Nokia的HERE服务是一个很好的补充。对于从Android转过来的人来说，应该会得到很好的流畅性体验，但会失掉定制性，不过账号方面基本无压力，自由切换无损失。
-
 
 
 
