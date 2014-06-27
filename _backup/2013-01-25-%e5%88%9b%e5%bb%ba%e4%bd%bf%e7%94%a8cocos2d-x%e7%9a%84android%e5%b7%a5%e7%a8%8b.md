@@ -1,7 +1,6 @@
 ---
 
-title: 创建使用cocos2d-x的Android工程
-author: fluke
+title: "创建使用cocos2d-x的Android工程"
 layout: post
 permalink: /2013/01/%e5%88%9b%e5%bb%ba%e4%bd%bf%e7%94%a8cocos2d-x%e7%9a%84android%e5%b7%a5%e7%a8%8b/
 categories: [Android]
