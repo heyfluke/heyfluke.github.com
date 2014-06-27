@@ -127,7 +127,7 @@ cocos2d是一个为ios编写的游戏开发库，流行起来以后创建了跨�
 
 然后是编译的过程，到TestCocos2dx目录去，发现工程文件都被整理在proj.android目录里面了（每个平台都统一这样的目录结构，比如ios的在proj.ios），到proj.android目录下运行./build_native.sh，结果发现很多错误，怀疑是对ndk的版本有要求，就换成ndk-r8c，结果成功：
 
-	….
+
 	
 	Prebuilt       : curl.a  
 	StaticLibrary  : libextension.a
